@@ -63,6 +63,13 @@
                 <th>Wali Kelas</th>
                 <th></th>
             </tr>
+            <tr>
+                <th>Nama Program Keahlian</th>
+                <th>Tingkat</th>
+                <th>Nama Kelas</th>
+                <th>Wali Kelas</th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
             <tr ng-repeat="x in class">
