@@ -1,8 +1,4 @@
 <div class="span12 well-large">
-<<<<<<< HEAD
-    <h1>Classes</h1>
-
-=======
     <h3>Classes</h3>
     <form class="form-horizontal" name="formEdit">
         <div class="control-group" ng-class="{error: formEdit.label.$invalid}">
@@ -54,13 +50,19 @@
     </form>
 </div>
 <div class="span12 well-large">
->>>>>>> 8f714fb34a2028a68b979aed998e4de8039e3b5c
     <a class="btn" ng-click="baru()">
         <i class="icon-plus-sign"></i>Create New Class
     </a>
     <hr>
     <table class="table table-striped table-condensed table-bordered">
         <thead>
+            <tr>
+                <th>Nama Program Keahlian</th>
+                <th>Tingkat</th>
+                <th>Nama Kelas</th>
+                <th>Wali Kelas</th>
+                <th></th>
+            </tr>
             <tr>
                 <th>Nama Program Keahlian</th>
                 <th>Tingkat</th>

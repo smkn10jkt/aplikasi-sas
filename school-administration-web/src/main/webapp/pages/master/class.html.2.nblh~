@@ -1,12 +1,8 @@
 <div class="span12 well-large">
-<<<<<<< HEAD
-    <h1>Classes</h1>
-
-=======
-    <h3>Classes</h3>
+    <h1>Form Permission</h1>
     <form class="form-horizontal" name="formEdit">
         <div class="control-group" ng-class="{error: formEdit.label.$invalid}">
-            <label class="control-label" for="label">Program Keahlian : &nbsp;</label>
+            <label class="control-label" for="label">Nama Program Keahlian : &nbsp;</label>
             <input type="text" id="label" 
                    name="label" 
                    placeholder="Program Keahlian" 
@@ -54,7 +50,8 @@
     </form>
 </div>
 <div class="span12 well-large">
->>>>>>> 8f714fb34a2028a68b979aed998e4de8039e3b5c
+    <h3>Classes</h3>
+
     <a class="btn" ng-click="baru()">
         <i class="icon-plus-sign"></i>Create New Class
     </a>
