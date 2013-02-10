@@ -5,47 +5,47 @@
 =======
     <h3>Classes</h3>
     <form class="form-horizontal" name="formEdit">
-        <div class="control-group" ng-class="{error: formEdit.label.$invalid}">
-            <label class="control-label" for="label">Program Keahlian : &nbsp;</label>
-            <input type="text" id="label" 
-                   name="label" 
+        <div class="control-group" ng-class="{error: formEdit.programkeahlian.$invalid}">
+            <label class="control-label" for="programkeahlian">Program Keahlian : &nbsp;</label>
+            <input type="text" id="programkeahlian" 
+                   name="programkeahlian" 
                    placeholder="Program Keahlian" 
-                   ng-model="currentPermission.label"
+                   ng-model="currentPermission.value"
                    required>
-            <span ng-show="formEdit.label.$error.required" class="help-inline">Harus diisi</span>
+            <span ng-show="formEdit.programkeahlian.$error.required" class="help-inline">required</span>
         </div>
-        <div class="control-group" ng-class="{error: formEdit.value.$invalid}">
-            <label class="control-label" for="value">Tingkat : &nbsp;</label>
+        <div class="control-group" ng-class="{error: formEdit.tingkat.$invalid}">
+            <label class="control-label" for="tingkat">Tingkat : &nbsp;</label>
             <input type="text" 
-                   id="value" 
-                   name="value" 
+                   id="tingkat" 
+                   name="tingkat" 
                    placeholder="Tingkat" 
                    ng-model="currentPermission.value"
                    required
                    ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
-            <span ng-show="formEdit.value.$error.required" class="help-inline">Harus diisi</span>   
+            <span ng-show="formEdit.tingkat.$error.required" class="help-inline">required</span>   
         </div>
-        <div class="control-group" ng-class="{error: formEdit.value.$invalid}">
-            <label class="control-label" for="value">Nama Kelas : &nbsp;</label>
+        <div class="control-group" ng-class="{error: formEdit.nama.$invalid}">
+            <label class="control-label" for="nama">Nama Kelas : &nbsp;</label>
             <input type="text" 
-                   id="value" 
-                   name="value" 
+                   id="nama" 
+                   name="nama" 
                    placeholder="Nama Kelas" 
                    ng-model="currentPermission.value"
                    required
                    ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
-            <span ng-show="formEdit.value.$error.required" class="help-inline">Harus diisi</span>   
+            <span ng-show="formEdit.nama.$error.required" class="help-inline">required</span>   
         </div>
-        <div class="control-group" ng-class="{error: formEdit.value.$invalid}">
-            <label class="control-label" for="value">Wali Kelas : &nbsp;</label>
+        <div class="control-group" ng-class="{error: formEdit.walikelas.$invalid}">
+            <label class="control-label" for="walikelas">Wali Kelas : &nbsp;</label>
             <input type="text" 
-                   id="value" 
-                   name="value" 
+                   id="walikelas" 
+                   name="walikelas" 
                    placeholder="Wali Kelas" 
                    ng-model="currentPermission.value"
                    required
                    ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
-            <span ng-show="formEdit.value.$error.required" class="help-inline">Harus diisi</span>   
+            <span ng-show="formEdit.walikelas.$error.required" class="help-inline">required</span>   
         </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
@@ -54,7 +54,6 @@
     </form>
 </div>
 <div class="span12 well-large">
->>>>>>> 8f714fb34a2028a68b979aed998e4de8039e3b5c
     <a class="btn" ng-click="baru()">
         <i class="icon-plus-sign"></i>Create New Class
     </a>
