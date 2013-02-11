@@ -438,4 +438,78 @@ angular.module('belajar.controller',['belajar.service'])
             return true;
         }
     }])
+	
+    .controller('StudentController', ['$scope', 'StudentService', function($scope, StudentService){
+        $scope.students = StudentService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentStudent = StudentService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentStudent = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            if($scope.currentStudent.active == null){
+                $scope.currentStudent.active = false;
+            }
+            StudentService.save($scope.currentStudent)
+            .success(function(){
+                $scope.students = StudentService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            StudentService.remove(x).success(function(){
+                $scope.students = StudentService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentStudent);
+        }
+    }])
+	
+    .controller('SchoolController', ['$scope', 'SchoolService', function($scope, SchoolService){
+        $scope.schools = SchoolService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentSchool = SchoolService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentSchool = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            if($scope.currentSchool.active == null){
+                $scope.currentSchool.active = false;
+            }
+            SchoolService.save($scope.currentSchool)
+            .success(function(){
+                $scope.schools = SchoolService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            SchoolService.remove(x).success(function(){
+                $scope.schools = SchoolService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentSchool);
+        }
+    }])
 ;

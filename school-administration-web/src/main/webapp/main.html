@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Belajar RESTful</title>
+        <title>Sistem Informasi Akademik</title>
 
         <!-- css orang lain -->
         <link rel="stylesheet" href="css/jquery-ui.min.css">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
         <link href="css/select2.css" rel="stylesheet"/>
+		<link rel="shortcut icon" href="img/icon-sas.png">
 
         <!-- css kita sendiri -->
         <link href="css/aplikasi.css" rel="stylesheet">
@@ -27,13 +28,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                    <a class="brand" href="#">Belajar RESTful</a>
+                    <a class="brand" href="#">Sistem Informasi Akademik</a>
                     <div class="nav-collapse collapse" ng-controller="MenubarController">
                         <ul class="nav">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">System <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-header">Pengaturan Sistem</li>
+                                    <li class="nav-header">System Setting</li>
                                     <li><a href="#system/config">Konfigurasi Aplikasi</a></li>
                                     <li class="divider"></li>
                                     <li class="nav-header">Ijin Akses</li>
@@ -49,22 +50,19 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Master <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Produk</a></li>
-                                    <li><a href="#">Customer</a></li>
+                                    <li><a href="#/master/student">Student</a></li>
+                                    <li><a href="#/master/teacher">Teacher</a></li>
+                                    <li><a href="#/master/class">Class</a></li>
+                                    <li><a href="#/master/school">School</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transaksi <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Report <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Pembelian</a></li>
-                                    <li><a href="#">Penjualan</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Rekap Pembelian</a></li>
-                                    <li><a href="#">Rekap Penjualan</a></li>
+                                    <li><a href="#/master/siswa">Student</a></li>
+                                    <li><a href="#/master/guru">Teacher</a></li>
+                                    <li><a href="#/master/kelas">Class</a></li>
+                                    <li><a href="#/master/sekolah">School</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

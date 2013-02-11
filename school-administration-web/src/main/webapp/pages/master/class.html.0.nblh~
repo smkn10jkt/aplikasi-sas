@@ -1,0 +1,32 @@
+<div class="span12 well-large">
+    <h1>Data Kelas</h1>
+
+    <a class="btn" ng-click="baru()">
+        <i class="icon-plus-sign"></i>Tambah Data
+    </a>
+    <hr>
+    <table class="table table-striped table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th>Nama Program Keahlian</th>
+                <th>Tingkat</th>
+                <th>Nama Kelas</th>
+                <th>Wali Kelas</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in class">
+                <td>{{x.jurusan}}</td>
+                <td>{{x.tingkat}}</td>
+                <td>{{x.nama}}</td>
+                <td>{{x.wali}}</td>
+                <td>
+                    <a ng-click="edit(x)"><i class="icon-edit"></i></a>
+                    <a ng-click="remove(x)"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

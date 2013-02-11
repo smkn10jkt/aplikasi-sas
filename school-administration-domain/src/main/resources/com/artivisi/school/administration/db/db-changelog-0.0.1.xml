@@ -87,6 +87,64 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
+        <createTable tableName="m_province">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="code" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <createTable tableName="m_district">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="id_province" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="code" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <createTable tableName="m_subdistrict">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="id_district" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="code" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <createTable tableName="m_school">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="address" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_subdistrict" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="website" type="varchar(255)" />
+            <column name="email" type="varchar(255)" />
+        </createTable>
         <modifySql dbms="mysql">
             <append value=" engine innodb" />
         </modifySql>
@@ -149,6 +207,27 @@
             referencedTableName="c_security_role"
             referencedColumnNames="id"
         />
+        <addForeignKeyConstraint
+            constraintName="fk_school_subdistrict"
+            baseColumnNames="id_subdistrict"
+            baseTableName="m_school"
+            referencedTableName="m_subdistrict"
+            referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint
+            constraintName="fk_district_province"
+            baseColumnNames="id_province"
+            baseTableName="m_district"
+            referencedTableName="m_province"
+            referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint
+            constraintName="fk_district_subdistrict"
+            baseColumnNames="id_district"
+            baseTableName="m_subdistrict"
+            referencedTableName="m_district"
+            referencedColumnNames="id"
+        />
     </changeSet>
     <changeSet id="3" author="endy">
         <loadData tableName="c_security_menu" file="com/artivisi/school/administration/db/data/menu.csv">
@@ -185,6 +264,32 @@
             <column header="password" type="STRING"/>
             <column header="active" type="BOOLEAN"/>
             <column header="id_role" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_province" file="com/artivisi/school/administration/db/data/province.csv">
+            <column header="id" type="STRING"/>
+            <column header="code" type="STRING"/>
+            <column header="name" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_subdistrict" file="com/artivisi/school/administration/db/data/subdistrict.csv">
+            <column header="id" type="STRING"/>
+            <column header="id_district" type="STRING"/>
+            <column header="code" type="STRING"/>
+            <column header="name" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_district" file="com/artivisi/school/administration/db/data/district.csv">
+            <column header="id" type="STRING"/>
+            <column header="id_province" type="STRING"/>
+            <column header="code" type="STRING"/>
+            <column header="name" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_school" file="com/artivisi/school/administration/db/data/school.csv">
+            <column header="id" type="STRING"/>
+            <column header="name" type="STRING"/>
+            <column header="address" type="STRING"/>
+            <column header="id_subdistrict" type="STRING"/>
+            <column header="phone" type="STRING"/>
+            <column header="website" type="STRING"/>
+            <column header="email" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>
