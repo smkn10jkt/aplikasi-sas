@@ -54,8 +54,7 @@
                                     <li><a href="#/master/teacher">Teacher</a></li>
                                     <li><a href="#/master/class">Class</a></li>
                                     <li><a href="#/master/school">School</a></li>
-                                    <li><a href="#/master/lesson">Lesson</a></li>
-                                    <li><a href="#/master/school">Ekstra Kurikuler</a></li>
+									<li><a href="#/master/school">Ekstra Kurikuler</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

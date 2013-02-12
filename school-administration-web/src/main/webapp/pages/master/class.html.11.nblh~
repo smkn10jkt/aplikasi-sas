@@ -20,7 +20,7 @@
                 </tr>
             </thead>
         <tbody>
-            <tr ng-repeat="x in classes">
+            <tr ng-repeat="x in students">
                 <td>{{x.majors}}</td>
                 <td>{{x.grade}}</td>
                 <td>{{x.name}}</td>
