@@ -1,71 +1,96 @@
 <div class="span12 well-large">
-    <h1>Form School</h1>
-
-	<div class="accordion" id="accordion2">
-		<div class="accordion-group">
-			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-					<button class="btn btn-info" ng-click="baru()"><i class="icon-plus-sign"></i> Create New School</button>
-				</a>
-			</div>
-			<div id="collapseOne" class="accordion-body collapse in">
-				<div class="accordion-inner">
-					<form class="form-horizontal" name="formEdit">
-						<div class="control-group" ng-class="{error: formEdit.name.$invalid}">
-							<label class="control-label" for="name">School Name : &nbsp;</label>
-							<input type="text" id="name" 
-								   name="name" 
-								   placeholder="School Name" 
-								   ng-model="currentSchool.name"
-								   required>
-							<span ng-show="formEdit.name.$error.required" class="help-inline">required</span>
-						</div>
-						<div class="form-actions">
-							<button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Save</button>
-							<button type="button" class="btn" ng-click="baru()">Clear </button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	<div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-        <button class="btn btn-info"><i class="icon-list"></i> List School</button>
-      </a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse">
-      <div class="accordion-inner">
-        <hr>
-		<table class="table table-striped table-condensed table-bordered">
-			<thead>
-				<tr>
+<h1 id="header">Master School</h1>
+		<div>
+			<ul class="nav nav-tabs">
+  <li class="active" id="list"><a href="#list" data-toggle="tab" class="active"><i class="icon-list"></i>School List</a></li>
+  <li><a href="#new_school" data-toggle="tab"><i class="icon-plus-sign"></i>Create New School</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="list">
+	<table class="table table-striped table-condensed table-bordered">
+        <thead>
+            <tr>
 					<th>Name</th>
 					<th>Address</th>
 					<th>Sub District</th>                
 					<th>Phone</th>
 					<th>Website</th>
 					<th>Email</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="x in schools">
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in schools">
 					<td>{{x.name}}</td>
 					<td>{{x.address}}</td>
 					<td>{{x.subdistrict.name}}</td>
 					<td>{{x.phone}}</td>
 					<td>{{x.website}}</td>
 					<td>{{x.email}}</td>
-					<td>
-						<a ng-click="edit(x)"><i class="icon-edit"></i></a>
-						<a ng-click="remove(x)"><i class="icon-remove"></i></a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-      </div>
-    </div>
+
+                <td>
+                    <a ng-click="edit(x)"><i class="icon-edit"></i></a>
+                    <a ng-click="remove(x)"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  <div class="tab-pane" id="new_school">
+	<form class="form-horizontal" name="formEdit">
+						<div class="control-group" ng-class="{error: formEdit.label.$invalid}">
+					<label class="control-label" for="nama">Nama : &nbsp;</label>
+					<input type="text" id="nama" name="nama" placeholder="Nama" ng-model="currentPermission.value"required
+ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
+				</div>
+				<div class="control-group" ng-class="{error: formEdit.alamat.$invalid}">
+					<label class="control-label" for="alamat">Alamat : &nbsp;</label>
+					<input type="text" id="alamat" name="alamat" placeholder="Alamat" ng-model="currentPermission.value"required
+ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
+<span ng-show="formEdit.nama.$error.required" class="help-inline">required</span>
+            <span ng-show="formEdit.nama.$error.permissionValueAvailable" class="help-inline">Already exist</span>
+        </div>
+		<div class="control-group" ng-class="{error: formEdit.kecamatan.$invalid}">
+					<label class="control-label" for="kecamatan">Kecamatan : &nbsp;</label>
+					<input type="text" id="kecamatan" name="kecamatan" placeholder="Kecamatan" ng-model="currentPermission.value"required
+ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
+<span ng-show="formEdit.nama.$error.required" class="help-inline">required</span>
+            <span ng-show="formEdit.nama.$error.permissionValueAvailable" class="help-inline">Already exist</span>
+        </div>
+		<div class="control-group" ng-class="{error: formEdit.telephone.$invalid}">
+					<label class="control-label" for="telephone">Telephone : &nbsp;</label>
+					<input type="text" id="telephone" name="telephone" placeholder="Telephone" ng-model="currentPermission.value"required
+ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
+<span ng-show="formEdit.nama.$error.required" class="help-inline">required</span>
+            <span ng-show="formEdit.nama.$error.permissionValueAvailable" class="help-inline">Already exist</span>
+				</div>
+		<div class="control-group" ng-class="{error: formEdit.website.$invalid}">
+					<label class="control-label" for="website">Website : &nbsp;</label>
+					<input type="text" id="website" name="website" placeholder="Website" ng-model="currentPermission.value"required
+ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
+<span ng-show="formEdit.nama.$error.required" class="help-inline">required</span>
+            <span ng-show="formEdit.nama.$error.permissionValueAvailable" class="help-inline">Already exist</span>
+				</div>		
+		<div class="control-group" ng-class="{error: formEdit.email.$invalid}">
+					<label class="control-label" for="email">Email : &nbsp;</label>
+					<input type="text" id="email" name="email" placeholder="Email" ng-model="currentPermission.value"required
+ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
+            <span ng-show="formEdit.nama.$error.required" class="help-inline">required</span>
+            <span ng-show="formEdit.nama.$error.permissionValueAvailable" class="help-inline">Already exist</span>
+        </div>
+				
+						<div class="form-actions">
+						<button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Save</button>
+						<button type="reset" class="btn" ng-click="baru()">Clear</button>
+						</div>
+					</form>
   </div>
 </div>
+ 
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+	  })
+ </script>
+		</div>
 </div>
