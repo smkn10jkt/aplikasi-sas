@@ -13,8 +13,6 @@ angular.module('belajar', ['ui', 'belajar.controller'])
             .when('/master/student', {templateUrl: 'pages/master/student.html', controller: 'StudentController'})
             .when('/master/teacher', {templateUrl: 'pages/master/teacher.html'})
             .when('/master/class', {templateUrl: 'pages/master/class.html'})
-            .when('/master/competency', {templateUrl: 'pages/master/competency.html'})
-            .when('/master/lesson', {templateUrl: 'pages/master/lesson.html'})
             .when('/master/school', {templateUrl: 'pages/master/school.html', controller: 'SchoolController'})
             .when('/about', {templateUrl: 'pages/about.html', controller: 'AboutController'})
             .otherwise({templateUrl: 'pages/404.html'});
