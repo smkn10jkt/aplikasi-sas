@@ -1,42 +1,39 @@
-<div class="span12 well-large">
-	<h1 id="header">Master Student</h1>
-	
-	<div>
+<div class="container">
+<div class="span11 well-large">
+    <div class="tabbable tabs-left">
 		<ul class="nav nav-tabs" id="myTab">
-			<li class="active"><a href="#list" data-toggle="tab"><i class="icon-list"></i>Student List</a></li>
-			<li><a href="#new" data-toggle="tab"><i class="icon-plus-sign"></i>Create New Student</a></li>
+			<li class="active"><a href="#studentlist" data-toggle="tab"><i class="icon-list"></i>Student List</a></li>
+			<li><a href="#form" data-toggle="tab"><i class="icon-edit"></i>Update Student</a></li>
 		</ul>
 	<div class="tab-content">
-		<div class="tab-pane active" id="list">
+		<div class="tab-pane active" id="studentlist">
 			<h3>Student List</h3>
 			<table class="table table-striped table-condensed table-bordered">
 				<thead>
 					<tr>
+                                                <th>School Year</th>
 						<th>NIS</th>
 						<th>Name</th>
 						<th>Grade</th>                
-						<th>Majors</th>                
 						<th>Religion</th>
 						<th>Sex</th>
 						<th>Place of birth</th>
 						<th>Address</th>
 						<th>Zip code</th>
-						<th>Phone</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr ng-repeat="x in students">
+                                                <td>{{x.schoolyear}}</td>
 						<td>{{x.nis}}</td>
 						<td>{{x.name}}</td>
 						<td>{{x.grade}}</td>
-						<td>{{x.majors}}</td>
 						<td>{{x.religion}}</td>
 						<td>{{x.sex}}</td>
 						<td>{{x.placeofbirth}}</td>
 						<td>{{x.address}}</td>
 						<td>{{x.zipcode}}</td>
-						<td>{{x.phone}}</td>
 						<td>
 							<a ng-click="edit(x)"><i class="icon-edit"></i></a>
 							<a ng-click="remove(x)"><i class="icon-remove"></i></a>
@@ -45,8 +42,8 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="tab-pane" id="new">
-  <h3>Input Student</h3>
+		<div class="tab-pane" id="form">
+  <h3>Update Student</h3>
 	<form class="form-horizontal" name="formEdit">
 						<div class="control-group" ng-class="{error: formEdit.label.$invalid}">
 							<label class="control-label" for="tahun-ajaran">School Year : &nbsp;</label>
@@ -112,8 +109,8 @@ ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
 					</select>
 				</div>
 				<div class="control-group" ng-class="{error: formEdit.tempatlahir.$invalid}">
-					<label class="control-label" for="tempatlahir">Place of birth : &nbsp;</label>
-					<input type="text" id="tempatlahir" name="tempatlahir" placeholder="Place of birth" ng-model="currentPermission.value"required
+					<label class="control-label" for="tempatlahir">Tempat Lahir : &nbsp;</label>
+					<input type="text" id="tempatlahir" name="tempatlahir" placeholder="Tempat Lahir" ng-model="currentPermission.value"required
 ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
         </div>
 		<div class="control-group" ng-class="{error: formEdit.tgllahir.$invalid}">
