@@ -12,6 +12,7 @@
         <table class="table table-striped table-condensed table-bordered">
             <thead>
                 <tr>
+                    <th>Class ID</th>
                     <th>Majors</th>
                     <th>Grade</th>
                     <th>Name</th>
@@ -21,6 +22,7 @@
             </thead>
         <tbody>
             <tr ng-repeat="x in classes">
+                <td>{{x.class}}</td>
                 <td>{{x.majors}}</td>
                 <td>{{x.grade}}</td>
                 <td>{{x.name}}</td>
@@ -36,7 +38,16 @@
   <div class="tab-pane" id="new">
       <h3>Input Class</h3>
 	 <form class="form-horizontal" name="formEdit">
-            <div class="control-group" ng-class="{error: formEdit.majors.$invalid}">
+                <div class="control-group" ng-class="{error: formEdit.class.$invalid}">
+                <label class="control-label" for="class">Class ID : &nbsp;</label>
+                <input type="text" id="class"
+                       name="class" 
+                       placeholder="Class ID" 
+                       ng-model="currentClass.value"
+                       required>
+                <span ng-show="formEdit.class.$error.required" class="help-inline">required</span>
+                </div>
+                <div class="control-group" ng-class="{error: formEdit.majors.$invalid}">
                 <label class="control-label" for="majors">Majors : &nbsp;</label>
                 <input type="text" id="majors"
                        name="majors" 
