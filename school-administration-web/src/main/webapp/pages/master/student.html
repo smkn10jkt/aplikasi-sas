@@ -15,11 +15,13 @@
 						<th>NIS</th>
 						<th>Name</th>
 						<th>Grade</th>                
+						<th>Majors</th>                
 						<th>Religion</th>
 						<th>Sex</th>
 						<th>Place of birth</th>
 						<th>Address</th>
 						<th>Zip code</th>
+						<th>Phone</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -28,11 +30,13 @@
 						<td>{{x.nis}}</td>
 						<td>{{x.name}}</td>
 						<td>{{x.grade}}</td>
+						<td>{{x.majors}}</td>
 						<td>{{x.religion}}</td>
 						<td>{{x.sex}}</td>
 						<td>{{x.placeofbirth}}</td>
 						<td>{{x.address}}</td>
 						<td>{{x.zipcode}}</td>
+						<td>{{x.phone}}</td>
 						<td>
 							<a ng-click="edit(x)"><i class="icon-edit"></i></a>
 							<a ng-click="remove(x)"><i class="icon-remove"></i></a>
@@ -108,7 +112,7 @@ ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
 					</select>
 				</div>
 				<div class="control-group" ng-class="{error: formEdit.tempatlahir.$invalid}">
-					<label class="control-label" for="tempatlahir">Tempat Lahir : &nbsp;</label>
+					<label class="control-label" for="tempatlahir">Place of birth : &nbsp;</label>
 					<input type="text" id="tempatlahir" name="tempatlahir" placeholder="Tempat Lahir" ng-model="currentPermission.value"required
 ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
         </div>
