@@ -49,16 +49,16 @@
                        required>
                 <span ng-show="formEdit.majors.$error.required" class="help-inline">required</span>
             </div>
-            <div class="control-group" ng-class="{error: formEdit.semester.$invalid}">
-                <label class="control-label" for="semester">Semester : &nbsp;</label>
-                <input type="text" 
-                       id="semester" 
-                       name="semester" 
-                       placeholder="Semester" 
-                       ng-model="currentSemester.value"
-                       required
-                       ui-validate="{semesterValueAvailable: isSemesterValueAvailable}">
-                <span ng-show="formEdit.semester.$error.required" class="help-inline">required</span>   
+            <div class="control-group" ng-class="{error: formEdit.label.$invalid}">
+		<label class="control-label" for="semester">Semester : &nbsp;</label>
+			<select>
+				<option>I</option>
+                                <option>II</option>
+                                <option>III</option>
+				<option>IV</option>
+				<option>V</option>
+                                <option>VI</option>
+			</select>
             </div>
             <div class="control-group" ng-class="{error: formEdit.name.$invalid}">
                 <label class="control-label" for="name">Name : &nbsp;</label>
