@@ -25,8 +25,20 @@
                     <a ng-click="remove(x)"><i class="icon-remove"></i></a>
                 </td>
             </tr>
+			<form class="btn" name="formEdit">
+			<div class="control-group" ng-class="{error: formEdit.cari.$invalid}">
+					<button type="submit" class="btn" ng-click="search()" ng-disabled="isClean() || formEdit.$invalid">Cari</button>
+					<input type="text" id="cari" name="cari" placeholder="Berdasarkan nama" ng-model="currentPermission.value"required
+ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
+            <span ng-show="formEdit.cari.$error.required" class="help-inline">required</span>
+            <span ng-show="formEdit.cari.$error.permissionValueAvailable" class="help-inline">Already exist</span>
+			</form>
+        </div>
         </tbody>
     </table>
   </div>
+  <div class="form-actions">
+						<button type="submit" class="btn" ng-click="print()" ng-disabled="isClean() || formEdit.$invalid">Print Report</button>
+						</div>
 </div>
 </div>
