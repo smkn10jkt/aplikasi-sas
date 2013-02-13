@@ -55,18 +55,12 @@
 					<span ng-show="formEdit.id.$error.required" class="help-inline">required</span>
 					<span ng-show="formEdit.id.$error.permissionValueAvailable" class="help-inline">ID Sudah Ada</span>
         </div>
-		<div class="control-group" ng-class="{error: formEdit.semester.$invalid}">
-					<label class="control-label" for="semester">Semester : &nbsp;</label>
-					<select>
-						<option>I</option>
-						<option>II</option>
-						<option>III</option>
-						<option>IV</option>
-						<option>V</option>
-						<option>VI</option>
-					</select>
+		<div class="control-group" ng-class="{error: formEdit.id.$invalid}">
+			<label class="control-label" for="id">Semester : &nbsp;</label>
+				<input type="text" id="semester" name="semester" placeholder="Semester" ng-model="currentPermission.value"required
+				ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
 					<span ng-show="formEdit.id.$error.required" class="help-inline">required</span>
-		</div>
+        </div>
 		<div class="control-group" ng-class="{error: formEdit.id.$invalid}">
 			<label class="control-label" for="id">Nama Industri : &nbsp;</label>
 				<input type="text" id="dudi" name="dudi" placeholder="Nama Dudi" ng-model="currentPermission.value"required
