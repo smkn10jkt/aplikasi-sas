@@ -88,7 +88,7 @@
             </column>
         </createTable>
         <createTable tableName="m_student">
-            <column name="id_siswa" type="varchar(255)">
+            <column name="id" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="nis" type="varchar(255)">
@@ -99,7 +99,7 @@
             </column>
             <column name="grade" type="varchar(255)" />
             <column name="majors" type="varchar(255)" />
-            <column name="name" type="boolean" >
+            <column name="name" type="varchar(255)" >
             <constraints nullable="false" />
             </column>
             <column name="religion" type="varchar(255)" />
