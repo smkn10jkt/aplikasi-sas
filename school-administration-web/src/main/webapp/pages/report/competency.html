@@ -5,20 +5,24 @@
   <fieldset>
 		<div class="control-group" ng-class="{error: formEdit.lesson.$invalid}">
 					<label class="control-label size" for="lesson">Search by Lesson : &nbsp;</label>
+					<div class="input-append">
 					<input type="text" id="lesson" name="lesson" placeholder="Lesson" ng-model="currentPermission.value"required
 ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
             <span ng-show="formEdit.lesson.$error.permissionValueAvailable" class="help-inline">Data not Found</span>
-			<button class="btn btn-primary"><i class="icon-search"></i>Search</button>
+			<button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+</div>
         </div>
     <h3 id="header">Competency Report</h3><br />
         	<form class="form-horizontal" name="formEdit">
         <fieldset>
 		<div class="control-group" ng-class="{error: formEdit.comp_id.$invalid}">
 			<label class="control-label size" for="comp_id">Search by ID : &nbsp;</label>
+			<div class="input-append">
 			<input type="text" id="comp_id" name="comp_id" placeholder="ID" ng-model="currentComp.value"required
                         ui-validate="{compValueAvailable: isCompValueAvailable}">
                             <span ng-show="formEdit.id.$error.lessonValueAvailable" class="help-inline">Data not Found</span>
-			<button class="btn btn-primary"><i class="icon-search"></i>Search</button>
+			<button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+</div>
                 </div>
   </fieldset>
 </form>      

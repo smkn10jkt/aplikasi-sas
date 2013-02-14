@@ -5,10 +5,12 @@
 	<fieldset>
 	<div class="control-group" ng-class="{error: formEdit.name.$invalid}">
 					<label class="control-label size" for="name">Search by Name : &nbsp;</label>
+					<div class="input-append">
 					<input type="text" id="name" name="name" placeholder="Name" ng-model="currentPermission.value"required
 ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
             <span ng-show="formEdit.name.$error.permissionValueAvailable" class="help-inline">Data not Found</span>
-			<button class="btn btn-primary"><i class="icon-search"></i>Search</button>
+			<button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+</div>
         </div>
 	</fieldset>
 	</form>

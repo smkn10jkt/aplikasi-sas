@@ -4,11 +4,14 @@
 	<form class="form-horizontal" name="formEdit">
   <fieldset>
 		<div class="control-group" ng-class="{error: formEdit.id.$invalid}">
+					<div class="input-append">
 					<label class="control-label size" for="id">Search by ID : &nbsp;</label>
 					<input type="text" id="id" name="id" placeholder="ID Lessons" ng-model="currentPermission.value"required
 ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
             <span ng-show="formEdit.id.$error.permissionValueAvailable" class="help-inline">Data not Found</span>
-			<button class="btn btn-primary">Search</button>
+			<button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+</div>
+        </div>
         </div>
   </fieldset>
 </form>
