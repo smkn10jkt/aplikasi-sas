@@ -15,10 +15,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
- * @author dsemuts
+ * @author JC
  */
 @Entity @Table(name="m_teacher")
-public class Teacher {
+public class Ekskul {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
@@ -26,23 +26,19 @@ public class Teacher {
     
     @NotNull @NotEmpty
     @Column(nullable = false)
-    private String nama;
+    private String semester;
     
     @NotNull @NotEmpty
     @Column(nullable = false)
-    private String nip;
+    private String name;
     
     @NotNull @NotEmpty
     @Column(nullable = true)
-    private String description;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    private String id_student;
+    
+    @NotNull @NotEmpty
+    @Column(nullable = true)
+    private String predikat;
 
     public String getId() {
         return id;
@@ -52,21 +48,38 @@ public class Teacher {
         this.id = id;
     }
 
-    public String getNama() {
-        return nama;
+    public String getId_student() {
+        return id_student;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setId_student(String id_student) {
+        this.id_student = id_student;
     }
 
-    public String getNip() {
-        return nip;
+    public String getName() {
+        return name;
     }
 
-    public void setNip(String nip) {
-        this.nip = nip;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public String getPredikat() {
+        return predikat;
+    }
+
+    public void setPredikat(String predikat) {
+        this.predikat = predikat;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+    
     
     
 }
