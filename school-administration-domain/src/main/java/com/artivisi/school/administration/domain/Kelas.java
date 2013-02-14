@@ -19,7 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  * @author Fauzani
  */
-@Entity @Table(name="data_kelas")
+@Entity @Table(name="m_class")
 public class Kelas {
     @Id
     @GeneratedValue(generator = "system-uuid")
@@ -28,7 +28,7 @@ public class Kelas {
     
     @NotNull
     @ManyToOne
-    @JoinColumn(name="id_pk" , nullable = false)
+    @JoinColumn(name="id_class" , nullable = false)
     private Majors majors;
     
  

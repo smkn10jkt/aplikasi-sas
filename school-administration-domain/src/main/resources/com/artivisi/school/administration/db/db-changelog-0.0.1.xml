@@ -71,34 +71,6 @@
                 <constraints primaryKey="true" nullable="false" />
             </column>
         </createTable>
-         <createTable tableName="data_kelas">
-            <column name="id_kelas" type="varchar(255)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="id_pk" type="varchar(255)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="id_wali" type="varchar(255)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="tingkat" type="varchar(255)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="nama" type="varchar(255)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            
-        </createTable>
-         </createTable>
-         <createTable tableName="raw_pk">
-            <column name="id_pk" type="varchar(255)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="nama_pk" type="varchar(255)">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            
-        </createTable>
         <createTable tableName="c_security_user">
             <column name="id" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false" />
@@ -114,6 +86,18 @@
             <column name="id_role" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
+        </createTable>
+        <createTable tableName="m_teacher">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="nip" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(255)" />
         </createTable>
         <modifySql dbms="mysql">
             <append value=" engine innodb" />
@@ -177,13 +161,6 @@
             referencedTableName="c_security_role"
             referencedColumnNames="id"
         />
-         <addForeignKeyConstraint
-            constraintName="fk_kelas_pk"
-            baseColumnNames="id_pk"
-            baseTableName="data_kelas"
-            referencedTableName="raw_pk"
-            referencedColumnNames="id"
-        />
     </changeSet>
     <changeSet id="3" author="endy">
         <loadData tableName="c_security_menu" file="com/artivisi/school/administration/db/data/menu.csv">
@@ -220,6 +197,12 @@
             <column header="password" type="STRING"/>
             <column header="active" type="BOOLEAN"/>
             <column header="id_role" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_teacher" file="com/artivisi/school/administration/db/data/teacher.csv">
+            <column header="id" type="STRING"/>
+            <column header="name" type="STRING"/>
+            <column header="nip" type="STRING"/>
+            <column header="description" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>

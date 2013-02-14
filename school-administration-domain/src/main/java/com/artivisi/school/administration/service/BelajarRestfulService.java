@@ -6,6 +6,7 @@ import com.artivisi.school.administration.domain.ApplicationConfig;
 import com.artivisi.school.administration.domain.Menu;
 import com.artivisi.school.administration.domain.Permission;
 import com.artivisi.school.administration.domain.Role;
+import com.artivisi.school.administration.domain.Teacher;
 import com.artivisi.school.administration.domain.User;
 import java.util.List;
 import org.springframework.data.domain.Page;
@@ -53,4 +54,11 @@ public interface BelajarRestfulService extends MonitoredService {
     User findUserByUsername(String username);
     Page<User> findAllUsers(Pageable pageable);
     Long countAllUsers();
+    
+    // teacher
+    void save(Teacher teacher);
+    void delete(Teacher teacher);
+    Teacher findTeacherById(String id);
+    Page<Teacher> findAllTeacher();
+    Long countAllTeachers();
 }

@@ -1,5 +1,6 @@
 package com.artivisi.school.administration.service.impl;
 
+import com.artivisi.school.administration.domain.Teacher;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -273,6 +274,31 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Override
     public Long countAllUsers() {
         return userDao.count();
+    }
+
+    @Override
+    public void save(Teacher teacher) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Teacher teacher) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Teacher findTeacherById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Teacher> findAllTeacher() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllTeachers() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }
