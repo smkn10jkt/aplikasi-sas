@@ -4,12 +4,6 @@
 	<form class="form-horizontal" name="formEdit">
   <fieldset>
 
-		<div class="control-group" ng-class="{error: formEdit.student.$invalid}">
-					<label class="control-label size" for="student">Search by Student : &nbsp;</label>
-					<input type="text" id="student" name="student" placeholder="Student" ng-model="currentPermission.value"required
-ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
-            <span ng-show="formEdit.student.$error.permissionValueAvailable" class="help-inline">Data not Found</span>
-			<button class="btn btn-primary">Search</button>
 		<div class="control-group" ng-class="{error: formEdit.lesson.$invalid}">
 					<label class="control-label size" for="lesson">Search by Lesson : &nbsp;</label>
 					<input type="text" id="lesson" name="lesson" placeholder="Lesson" ng-model="currentPermission.value"required
