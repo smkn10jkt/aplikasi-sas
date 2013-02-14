@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
@@ -15,14 +17,21 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
- * @author JC
+ * @author user
  */
-@Entity @Table(name="m_teacher")
-public class Ekskul {
-    @Id
+@Entity @Table(name="data_peta_pelajaran")
+public class MapLesson {
+     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
+    
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name="id_kelas" , nullable = false)
+    private Majors id_kelas;
+    
+ 
     
     @NotNull @NotEmpty
     @Column(nullable = false)
@@ -30,15 +39,11 @@ public class Ekskul {
     
     @NotNull @NotEmpty
     @Column(nullable = false)
-    private String name;
+    private String id_matpel;
     
     @NotNull @NotEmpty
-    @Column(nullable = true)
-    private String id_student;
-    
-    @NotNull @NotEmpty
-    @Column(nullable = true)
-    private String predikat;
+    @Column(nullable = false)
+    private String no_urut;
 
     public String getId() {
         return id;
@@ -48,28 +53,12 @@ public class Ekskul {
         this.id = id;
     }
 
-    public String getId_student() {
-        return id_student;
+    public Majors getId_kelas() {
+        return id_kelas;
     }
 
-    public void setId_student(String id_student) {
-        this.id_student = id_student;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPredikat() {
-        return predikat;
-    }
-
-    public void setPredikat(String predikat) {
-        this.predikat = predikat;
+    public void setId_kelas(Majors id_kelas) {
+        this.id_kelas = id_kelas;
     }
 
     public String getSemester() {
@@ -79,6 +68,23 @@ public class Ekskul {
     public void setSemester(String semester) {
         this.semester = semester;
     }
+
+    public String getId_matpel() {
+        return id_matpel;
+    }
+
+    public void setId_matpel(String id_matpel) {
+        this.id_matpel = id_matpel;
+    }
+
+    public String getNo_urut() {
+        return no_urut;
+    }
+
+    public void setNo_urut(String no_urut) {
+        this.no_urut = no_urut;
+    }
+    
     
     
     
