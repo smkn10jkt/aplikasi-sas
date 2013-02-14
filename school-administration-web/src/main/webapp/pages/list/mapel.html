@@ -1,10 +1,10 @@
 <div class="row">
     <div class="span10 well-large">
-        <h1>Form School</h1>
+        <h1>Form LEsson</h1>
         <form class="form-horizontal" name="formEdit">
             <div class="control-group" ng-class="{error: formEdit.nama.$invalid}">
                 <label class="control-label" for="lessonid">Lesson ID : &nbsp;</label>
-                <input type="text" id="name" name="lessonid" placeholder="Full Name" ng-model="currentUser.lessonid" required>
+                <input type="text" id="name" name="lessonid" placeholder="lesson id" ng-model="currentUser.lessonid" required>
                 <span ng-show="formEdit.lessonid.$error.required" class="help-inline">Harus diisi</span>
             </div>
              <div class="control-group" ng-class="{error: formEdit.address.$invalid}">
@@ -14,12 +14,12 @@
             </div>
             <div class="control-group" ng-class="{error: formEdit.subdistrict.$invalid}">
                 <label class="control-label" for="semester">Semester  : &nbsp;</label>
-                <input type="text" id="semester" name="semester" placeholder="Subdistrict" ng-model="currentUser.semester" required>
+                <input type="text" id="semester" name="semester" placeholder="semester" ng-model="currentUser.semester" required>
                 <span ng-show="formEdit.semester.$error.required" class="help-inline">Harus diisi</span>
             </div>
             <div class="control-group" ng-class="{error: formEdit.phone.$invalid}">
                 <label class="control-label" for="name">Name  : &nbsp;</label>
-                <input type="text" id="name" name="name" placeholder="Phone" ng-model="currentUser.name" required>
+                <input type="text" id="name" name="name" placeholder="name" ng-model="currentUser.name" required>
                 <span ng-show="formEdit.name.$error.required" class="help-inline">Harus diisi</span>
             </div>
             <div class="control-group" ng-class="{error: formEdit.website.$invalid}">
