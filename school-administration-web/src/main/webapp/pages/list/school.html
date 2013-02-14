@@ -44,20 +44,21 @@
                     <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
               </select>
             </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Simpan</button>
-                <button type="button" class="btn" ng-click="baru()">Batal</button>
-            </div>
             -->
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Save</button>
+                <button type="button" class="btn" ng-click="baru()">Clear</button>
+            </div>
+           
         </form>
     </div>
 </div>
 <div class="row">
     <div class="span10 well-large">
-        <h1>Daftar Sekolah</h1>
+        <h1>List School</h1>
 
         <a class="btn" ng-click="baru()">
-            <i class="icon-plus-sign"></i>Tambah Data
+            <i class="icon-plus-sign"></i>Add Data
         </a>
         <hr>
         <table class="table table-striped table-condensed table-bordered">
