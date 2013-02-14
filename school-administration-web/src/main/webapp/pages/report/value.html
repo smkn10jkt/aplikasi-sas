@@ -3,12 +3,21 @@
 	<h1 id="header">Report Value</h1><br />
 	<form class="form-horizontal" name="formEdit">
   <fieldset>
+<<<<<<< HEAD
 		<div class="control-group" ng-class="{error: formEdit.student.$invalid}">
 					<label class="control-label size" for="student">Search by Student : &nbsp;</label>
 					<input type="text" id="student" name="student" placeholder="Student" ng-model="currentPermission.value"required
 ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
             <span ng-show="formEdit.student.$error.permissionValueAvailable" class="help-inline">Data not Found</span>
 			<button class="btn btn-primary">Search</button>
+=======
+		<div class="control-group" ng-class="{error: formEdit.lesson.$invalid}">
+					<label class="control-label size" for="lesson">Search by Lesson : &nbsp;</label>
+					<input type="text" id="lesson" name="lesson" placeholder="Lesson" ng-model="currentPermission.value"required
+ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
+            <span ng-show="formEdit.lesson.$error.permissionValueAvailable" class="help-inline">Data not Found</span>
+			<button class="btn btn-primary"><i class="icon-search"></i>Search</button>
+>>>>>>> 2669068d40064f7f70dbe1cc436268415d989f33
         </div>
   </fieldset>
 </form>
@@ -17,6 +26,7 @@ ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
 					<tr>
 						<th>Lesson</th>
 						<th>Competency</th>
+<<<<<<< HEAD
 						<th>Student</th>
 						<th>Semester</th>
 						<th>Value</th>
@@ -30,6 +40,20 @@ ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
 						 <td>{{x.student}}</td>
 						 <td>{{x.semester}}</td>
 						 <td>{{x.value}}</td>
+=======
+						<th>Student</th>                
+						<th>Semester</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="x in students">
+						<td>{{x.lesson}}</td>
+						<td>{{x.competency}}</td>
+						<td>{{x.student}}</td>
+						<td>{{x.semester}}</td>
+						<td>{{x.value}}</td>
+>>>>>>> 2669068d40064f7f70dbe1cc436268415d989f33
 						<td>
 							<a ng-click="edit(x)"><i class="icon-edit"></i></a>
 							<a ng-click="remove(x)"><i class="icon-remove"></i></a>
@@ -38,4 +62,8 @@ ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
 				</tbody>
 			</table>
 		</div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 2669068d40064f7f70dbe1cc436268415d989f33
