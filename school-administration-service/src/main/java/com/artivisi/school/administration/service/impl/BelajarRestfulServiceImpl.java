@@ -1,12 +1,15 @@
 package com.artivisi.school.administration.service.impl;
 
+import com.artivisi.school.administration.domain.Competency;
+import com.artivisi.school.administration.domain.Kelas;
 import com.artivisi.school.administration.domain.Teacher;
+import com.artivisi.school.administration.domain.Value;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
@@ -26,7 +29,7 @@ import org.springframework.data.domain.Pageable;
 
 @SuppressWarnings("unchecked")
 @Service("belajarRestfulService")
-@Transactional
+
 public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
 	@Autowired
@@ -298,6 +301,56 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
     @Override
     public Long countAllTeachers() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void save(Value v) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Value v) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Kelas findValueById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Kelas> findAllValues() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllValues() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void save(Competency c) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Competency c) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Kelas findCompetencyById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Kelas> findAllCompetencies() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllCompetencies() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
