@@ -58,7 +58,7 @@
                                     <li><a href="#/master/competency">Competency</a></li>
                                     <li><a href="#/master/ekskul">Ekskul</a></li>
                                     <li><a href="#/master/value">Value</a></li>
-                                    <li><a href="#/master/pk">Majors</a></li>
+                                    <li><a href="#/master/pk">Program Keahlian</a></li>
 									<li><a href="#/master/job">Job Training</a></li>
 									<li><a href="#/master/cas">CAS</a></li>
 									<li><a href="#/master/maplessons">Map Lessons</a></li>
@@ -72,7 +72,6 @@
                                     <li><a href="#/report/teacher">Teacher</a></li>
                                     <li><a href="#/report/class">Class</a></li>
                                     <li><a href="#/report/school">School</a></li>
-                                     <li><a href="#/report/pk">Majors</a></li>
 									<li><a href="#/report/lesson">Lesson</a></li>
                                     <li><a href="#/report/competency">Competency</a></li>
 									<li><a href="#/report/mapless">Map Lessons</a></li>
