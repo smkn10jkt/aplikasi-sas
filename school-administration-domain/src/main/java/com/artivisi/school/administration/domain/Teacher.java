@@ -17,7 +17,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  * @author dsemuts
  */
-@Entity @Table(name="data_kelas")
+@Entity @Table(name="m_teacher")
 public class Teacher {
     @Id
     @GeneratedValue(generator = "system-uuid")
