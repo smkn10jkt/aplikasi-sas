@@ -5,10 +5,12 @@
         <fieldset>
 		<div class="control-group" ng-class="{error: formEdit.lesson_id.$invalid}">
 			<label class="control-label size" for="lesson_id">Search by ID : &nbsp;</label>
+			<div class="input-append">
 			<input type="text" id="lesson_id" name="lesson_id" placeholder="ID" ng-model="currentLesson.value"required
                         ui-validate="{lessonValueAvailable: isLessonValueAvailable}">
                             <span ng-show="formEdit.id.$error.lessonValueAvailable" class="help-inline">Data not Found</span>
-			<button class="btn btn-primary"><i class="icon-search"></i>Search</button>
+			<button class="btn btn-primary" type="button"><i class="icon-search"></i></button>
+</div>
                 </div>
   </fieldset>
 </form>      
