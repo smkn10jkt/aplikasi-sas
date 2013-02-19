@@ -28,7 +28,7 @@ public class Kelas {
     
     @NotNull
     @ManyToOne
-    @JoinColumn(name="id_class" , nullable = false)
+    @JoinColumn(name="id_pk" , nullable = false)
     private Majors majors;
     
  
