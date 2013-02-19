@@ -1,15 +1,19 @@
 package com.artivisi.school.administration.service.impl;
 
+import com.artivisi.school.administration.domain.Competency;
+import com.artivisi.school.administration.domain.Kelas;
 import com.artivisi.school.administration.domain.Teacher;
+import com.artivisi.school.administration.domain.Value;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
+import com.artivisi.school.administration.dao.KelasDao;
 import com.artivisi.school.administration.dao.MenuDao;
 import com.artivisi.school.administration.dao.PermissionDao;
 import com.artivisi.school.administration.dao.RoleDao;
@@ -26,7 +30,7 @@ import org.springframework.data.domain.Pageable;
 
 @SuppressWarnings("unchecked")
 @Service("belajarRestfulService")
-@Transactional
+
 public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
 	@Autowired
@@ -39,6 +43,9 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private RoleDao roleDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private KelasDao kelasDao;
+
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -276,4 +283,82 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
         return userDao.count();
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public void save(Teacher teacher) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Teacher teacher) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Teacher findTeacherById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Teacher> findAllTeacher() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllTeachers() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void save(Value v) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Value v) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Kelas findValueById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Kelas> findAllValues() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllValues() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void save(Competency c) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void delete(Competency c) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Kelas findCompetencyById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Page<Kelas> findAllCompetencies() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Long countAllCompetencies() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+>>>>>>> 96f517c57ca70d7486df53d8cb7b992e2e7a8da8
 }
