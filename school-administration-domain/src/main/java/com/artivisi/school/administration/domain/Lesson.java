@@ -8,8 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
@@ -17,21 +15,17 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
- * @author user
+ * @author Fauzani
  */
-@Entity @Table(name="data_matpel")
-public class Lesson {
+
+    
+    @Entity @Table(name="data_matpel")
+    public class Lesson {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id_matpel;
-    
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name="id_pk" , nullable = false)
-    private Majors id_pk;
-    
- 
+  
     
     @NotNull @NotEmpty
     @Column(nullable = false)
@@ -53,44 +47,20 @@ public class Lesson {
     @Column(nullable = false)
     private String deskripsi;
 
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
     public String getId_matpel() {
         return id_matpel;
     }
 
     public void setId_matpel(String id_matpel) {
         this.id_matpel = id_matpel;
-    }
-
-    public Majors getId_pk() {
-        return id_pk;
-    }
-
-    public void setId_pk(Majors id_pk) {
-        this.id_pk = id_pk;
-    }
-
-    public String getSemester() {
-        return semester;
-    }
-
-    public void setSemester(String semester) {
-        this.semester = semester;
-    }
-
-    public String getNama_matpel() {
-        return nama_matpel;
-    }
-
-    public void setNama_matpel(String nama_matpel) {
-        this.nama_matpel = nama_matpel;
-    }
-
-    public String getKkm() {
-        return kkm;
-    }
-
-    public void setKkm(String kkm) {
-        this.kkm = kkm;
     }
 
     public String getJml_kompetensi() {
@@ -101,13 +71,30 @@ public class Lesson {
         this.jml_kompetensi = jml_kompetensi;
     }
 
-    public String getDeskripsi() {
-        return deskripsi;
+    public String getKkm() {
+        return kkm;
     }
 
-    public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
+    public void setKkm(String kkm) {
+        this.kkm = kkm;
     }
+
+    public String getNama_matpel() {
+        return nama_matpel;
+    }
+
+    public void setNama_matpel(String nama_matpel) {
+        this.nama_matpel = nama_matpel;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+    
     
     
 }

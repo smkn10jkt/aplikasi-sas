@@ -1,9 +1,8 @@
 package com.artivisi.school.administration.service.impl;
 
-import com.artivisi.school.administration.domain.Competency;
-import com.artivisi.school.administration.domain.Kelas;
-import com.artivisi.school.administration.domain.Teacher;
-import com.artivisi.school.administration.domain.Value;
+
+
+import com.artivisi.school.administration.domain.Lesson;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
-import com.artivisi.school.administration.dao.KelasDao;
+import com.artivisi.school.administration.dao.LessonDao;
+
+
 import com.artivisi.school.administration.dao.MenuDao;
 import com.artivisi.school.administration.dao.PermissionDao;
 import com.artivisi.school.administration.dao.RoleDao;
@@ -33,7 +34,7 @@ import org.springframework.data.domain.Pageable;
 
 public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
-	@Autowired
+    @Autowired
     private ApplicationConfigDao applicationConfigDao;
     @Autowired
     private MenuDao menuDao;
@@ -44,8 +45,8 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Autowired
     private UserDao userDao;
     @Autowired
-    private KelasDao kelasDao;
-
+    private LessonDao lessonDao;
+    
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -283,82 +284,35 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
         return userDao.count();
     }
 
-<<<<<<< HEAD
-=======
     @Override
-    public void save(Teacher teacher) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void save(Lesson l) {
+          lessonDao.save(l);
     }
 
     @Override
-    public void delete(Teacher teacher) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void delete(Lesson l) {
+           lessonDao.delete(l);
     }
 
     @Override
-    public Teacher findTeacherById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Lesson findLessonById(String id) {
+            if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return lessonDao.findOne(id);
     }
 
     @Override
-    public Page<Teacher> findAllTeacher() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Page<Lesson> findAllLessons(Pageable pageable) {
+              return lessonDao.findAll(pageable);
     }
 
     @Override
-    public Long countAllTeachers() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Long countAllLessons() {
+              return lessonDao.count();
     }
 
-    @Override
-    public void save(Value v) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
-    @Override
-    public void delete(Value v) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
-    @Override
-    public Kelas findValueById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
-    @Override
-    public Page<Kelas> findAllValues() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Long countAllValues() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void save(Competency c) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void delete(Competency c) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Kelas findCompetencyById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Page<Kelas> findAllCompetencies() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Long countAllCompetencies() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
->>>>>>> 96f517c57ca70d7486df53d8cb7b992e2e7a8da8
 }

@@ -55,6 +55,29 @@
             </column>
             <column name="description" type="varchar(255)" />
         </createTable>
+        <createTable tableName="data_matpel">
+            <column name="id_matpel" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="id_pk" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="semester" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="nama_matpel" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="kkm" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="jml_kompetensi" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="deskripsi" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+        </createTable>
         <createTable tableName="c_security_role_permission">
             <column name="id_role" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false" />
@@ -87,7 +110,7 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
-        <createTable tableName="m_teacher">
+<!--        <createTable tableName="m_teacher">
             <column name="id" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false" />
             </column>
@@ -98,7 +121,7 @@
                 <constraints nullable="false" />
             </column>
             <column name="description" type="varchar(255)" />
-        </createTable>
+        </createTable>-->
         <modifySql dbms="mysql">
             <append value=" engine innodb" />
         </modifySql>
@@ -198,11 +221,20 @@
             <column header="active" type="BOOLEAN"/>
             <column header="id_role" type="STRING"/>
         </loadData>
-        <loadData tableName="m_teacher" file="com/artivisi/school/administration/db/data/teacher.csv">
+<!--        <loadData tableName="m_teacher" file="com/artivisi/school/administration/db/data/teacher.csv">
             <column header="id" type="STRING"/>
             <column header="name" type="STRING"/>
             <column header="nip" type="STRING"/>
             <column header="description" type="STRING"/>
+        </loadData>-->
+         <loadData tableName="data_matpel" file="com/artivisi/school/administration/db/data/matpel.csv">
+            <column header="id_matpel" type="STRING"/>
+            <column header="id_pk" type="STRING"/>
+            <column header="semester" type="STRING"/>
+            <column header="nama_matpel" type="STRING"/>
+            <column header="kkm" type="BOOLEAN"/>
+            <column header="jml_kompetensi" type="STRING"/>
+            <column header="deskripsi" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>
