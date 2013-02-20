@@ -12,5 +12,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @author Fauzani
  */
 public interface LessonDao extends PagingAndSortingRepository<Lesson, String> {
-    
+
 }

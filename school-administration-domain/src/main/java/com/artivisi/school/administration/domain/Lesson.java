@@ -17,8 +17,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  * @author Fauzani
  */
-
-    
+  
     @Entity @Table(name="data_matpel")
     public class Lesson {
     @Id
@@ -94,7 +93,7 @@ import org.hibernate.validator.constraints.NotEmpty;
     public void setSemester(String semester) {
         this.semester = semester;
     }
-    
+
     
     
 }

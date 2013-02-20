@@ -3,6 +3,7 @@ package com.artivisi.school.administration.service;
 import java.util.List;
 
 import com.artivisi.school.administration.domain.ApplicationConfig;
+import com.artivisi.school.administration.domain.Lesson;
 
 
 
@@ -61,7 +62,12 @@ public interface BelajarRestfulService extends MonitoredService {
     Long countAllUsers();
 
     
-   
+    //lesson
+    void save(Lesson l);
+    void delete(Lesson l);
+    Lesson findLessonById(String id);
+    Page<Lesson> findAllLessons(Pageable pageable);
+    Long countAllLessons();
     
    
 }

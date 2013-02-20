@@ -3,6 +3,7 @@ package com.artivisi.school.administration.service.impl;
 
 
 
+import com.artivisi.school.administration.domain.Lesson;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
+import com.artivisi.school.administration.dao.LessonDao;
 
 
 
@@ -44,6 +46,8 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private RoleDao roleDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private LessonDao lessonDao;
 
     
 
@@ -281,6 +285,34 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Override
     public Long countAllUsers() {
         return userDao.count();
+    }
+
+    @Override
+    public void save(Lesson l) {
+        lessonDao.save(l);
+    }
+
+    @Override
+    public void delete(Lesson l) {
+            lessonDao.delete(l);
+    }
+
+    @Override
+    public Lesson findLessonById(String id) {
+         if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return lessonDao.findOne(id);
+    }
+
+    @Override
+    public Page<Lesson> findAllLessons(Pageable pageable) {
+        return lessonDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllLessons() {
+         return lessonDao.count();
     }
 
    
