@@ -156,11 +156,7 @@ angular.module('belajar.service', ['ngResource'])
             get: function(param, callback){ return this.teacher.get(param, callback) }, 
             query: function(p, callback){ return this.teacher.queryPage({"page.page": p, "page.size": 10}, callback) },
             save: function(obj){
-                if(obj.id == null){
                     return $http.post('master/school', obj);
-                } else {
-                    return $http.put('master/school/'+obj.id, obj);
-                }
             }, 
             remove: function(obj){
                 if(obj.id != null){

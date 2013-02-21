@@ -36,7 +36,7 @@
                     <h3>Input Teacher</h3>
                     <form class="form-horizontal" name="formEdit">
             <div class="control-group" ng-class="{error: formEdit.name.$invalid}">
-                <label class="control-label" for="name">Nama Guru : &nbsp;</label>
+                <label class="control-label" for="name">Name : &nbsp;</label>
                 <input type="text" id="name" name="name" placeholder="Nama Guru" ng-model="currentTeacher.name"required>
                 <span ng-show="formEdit.name.$error.required" class="help-inline">required</span>
             </div>
@@ -46,12 +46,12 @@
                 <span ng-show="formEdit.nip.$error.required" class="help-inline">required</span>
             </div>
             <div class="control-group" ng-class="{error: formEdit.description.$invalid}">
-                <label class="control-label" for="description">Keterangan : &nbsp;</label>
+                <label class="control-label" for="description">Description : &nbsp;</label>
                 <input type="text" id="description" name="description" placeholder="Keterangan" ng-model="currentTeacher.description"required>
             </div>
-            <div>
-                <button type="submit" class="btn btn-primary" ng-click="simpan()">Simpan</button>
-                <button type="button" class="btn" ng-click="baru()" id="new_teacher">Batal</button>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" ng-click="simpan()">Save</button>
+                <button type="button" class="btn" ng-click="baru()" id="new_teacher">Cancel</button>
             </div>
         </form>
                 </div>
