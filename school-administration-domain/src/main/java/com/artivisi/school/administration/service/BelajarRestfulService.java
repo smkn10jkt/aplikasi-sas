@@ -1,6 +1,5 @@
 package com.artivisi.school.administration.service;
 
-import java.util.List;
 
 import com.artivisi.school.administration.domain.ApplicationConfig;
 import com.artivisi.school.administration.domain.Menu;
@@ -53,4 +52,5 @@ public interface BelajarRestfulService extends MonitoredService {
     User findUserByUsername(String username);
     Page<User> findAllUsers(Pageable pageable);
     Long countAllUsers();
+    
 }

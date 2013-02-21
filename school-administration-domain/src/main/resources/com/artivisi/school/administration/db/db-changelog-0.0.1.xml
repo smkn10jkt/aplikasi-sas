@@ -87,6 +87,20 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
+        <createTable tableName="m_teacher">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="nip" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
         <modifySql dbms="mysql">
             <append value=" engine innodb" />
         </modifySql>
@@ -185,6 +199,12 @@
             <column header="password" type="STRING"/>
             <column header="active" type="BOOLEAN"/>
             <column header="id_role" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_teacher" file="com/artivisi/school/administration/db/data/teacher.csv">
+            <column header="id" type="STRING"/>
+            <column header="name" type="STRING"/>
+            <column header="nip" type="STRING"/>
+            <column header="description" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>

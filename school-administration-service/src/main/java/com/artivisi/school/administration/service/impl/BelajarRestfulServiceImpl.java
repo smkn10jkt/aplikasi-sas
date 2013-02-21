@@ -274,5 +274,4 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     public Long countAllUsers() {
         return userDao.count();
     }
-
 }

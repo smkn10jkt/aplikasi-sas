@@ -124,4 +124,27 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
+    .factory('TeacherService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            teacher: $resource('master/teacher/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.teacher.get(param, callback) }, 
+            query: function(p, callback){ return this.teacher.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                if(obj.id == null){
+                    return $http.post('master/teacher', obj);
+                } else {
+                    return $http.put('master/teacher/'+obj.id, obj);
+                }
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/teacher/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
 ;
