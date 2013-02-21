@@ -124,6 +124,41 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
+        <createTable tableName="m_student">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="nis" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="grade" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="majors" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="religion" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="sex" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="birth" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="address" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="zipcode" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
         <modifySql dbms="mysql">
             <append value=" engine innodb" />
         </modifySql>
@@ -237,6 +272,19 @@
             <column header="phone" type="STRING"/>
             <column header="website" type="STRING"/>
             <column header="email" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_student" file="com/artivisi/school/administration/db/data/student.csv">
+            <column header="id" type="STRING"/>
+            <column header="nis" type="STRING"/>
+            <column header="name" type="STRING"/>
+            <column header="grade" type="STRING"/>
+            <column header="majors" type="STRING"/>
+            <column header="religion" type="STRING"/>
+            <column header="sex" type="STRING"/>
+            <column header="birth" type="STRING"/>
+            <column header="address" type="STRING"/>
+            <column header="zipcode" type="STRING"/>
+            <column header="phone" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>
