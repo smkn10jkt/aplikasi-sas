@@ -25,7 +25,7 @@
                                 <td>{{x.nip}}</td>
                                 <td>{{x.description}}</td>
                                 <td>
-                                    <a ng-click="edit(x)" href=""><i class="icon-edit"></i></a>
+                                    <a ng-click="edit(x)" href="#new_teacher" data-toggle="tab"><i class="icon-edit"></i></a>
                                     <a ng-click="remove(x)"><i class="icon-remove"></i></a>
                                 </td>
                             </tr>
@@ -50,8 +50,8 @@
                 <input type="text" id="description" name="description" placeholder="Keterangan" ng-model="currentTeacher.description"required>
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary" ng-click="simpan()">Save</button>
-                <button type="button" class="btn" ng-click="baru()" id="new_teacher">Cancel</button>
+                <button type="submit" class="btn btn-primary" ng-click="simpan()" href="#list" data-toggle="tab">Save</button>
+                <button type="button" class="btn btn-info" ng-click="baru()" id="new_teacher">Cancel</button>
             </div>
         </form>
                 </div>
