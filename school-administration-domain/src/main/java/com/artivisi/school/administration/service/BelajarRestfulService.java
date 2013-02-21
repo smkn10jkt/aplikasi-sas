@@ -2,10 +2,17 @@ package com.artivisi.school.administration.service;
 
 
 import com.artivisi.school.administration.domain.ApplicationConfig;
+import com.artivisi.school.administration.domain.Lesson;
+
+
+
+
 import com.artivisi.school.administration.domain.Menu;
 import com.artivisi.school.administration.domain.Permission;
 import com.artivisi.school.administration.domain.Role;
+
 import com.artivisi.school.administration.domain.User;
+
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -52,5 +59,5 @@ public interface BelajarRestfulService extends MonitoredService {
     User findUserByUsername(String username);
     Page<User> findAllUsers(Pageable pageable);
     Long countAllUsers();
-    
+
 }

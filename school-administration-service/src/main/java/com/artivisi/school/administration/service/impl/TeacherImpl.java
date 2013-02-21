@@ -18,6 +18,7 @@ import org.springframework.util.StringUtils;
  *
  * @author dsemuts
  */
+
 @Service
 @Transactional
 public class TeacherImpl implements TeacherService{
@@ -51,4 +52,5 @@ public class TeacherImpl implements TeacherService{
     public Long countAllTeacher() {
         return teacherDao.count();
     }
+
 }

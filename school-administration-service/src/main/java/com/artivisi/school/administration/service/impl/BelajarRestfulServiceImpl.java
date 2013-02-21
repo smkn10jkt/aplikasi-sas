@@ -1,14 +1,22 @@
 package com.artivisi.school.administration.service.impl;
 
+
+
+
+import com.artivisi.school.administration.domain.Lesson;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
+import com.artivisi.school.administration.dao.LessonDao;
+
+
+
 import com.artivisi.school.administration.dao.MenuDao;
 import com.artivisi.school.administration.dao.PermissionDao;
 import com.artivisi.school.administration.dao.RoleDao;
@@ -25,10 +33,10 @@ import org.springframework.data.domain.Pageable;
 
 @SuppressWarnings("unchecked")
 @Service("belajarRestfulService")
-@Transactional
+
 public class BelajarRestfulServiceImpl implements BelajarRestfulService {
 
-	@Autowired
+    @Autowired
     private ApplicationConfigDao applicationConfigDao;
     @Autowired
     private MenuDao menuDao;
@@ -38,6 +46,10 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private RoleDao roleDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private LessonDao lessonDao;
+
+    
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -274,4 +286,5 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     public Long countAllUsers() {
         return userDao.count();
     }
+
 }

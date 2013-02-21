@@ -4,6 +4,7 @@
  */
 package com.artivisi.school.administration.service;
 
+
 import com.artivisi.school.administration.domain.Teacher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
