@@ -1,82 +1,56 @@
-<div class="container">
-<div class="span11 well-large">
-    <h1>Master Teacher</h1>
-		<div>
-			<ul class="nav nav-tabs">
-  <li class="active"><a href="#list" data-toggle="tab" class="active"><i class="icon-list"></i>Teacher List</a></li>
-  <li><a href="#new_teacher" data-toggle="tab"><i class="icon-plus-sign"></i>Create New Teacher</a></li>
-</ul>
- 
-<div class="tab-content">
-  <div class="tab-pane active" id="list">
-  <h3>Teacher List</h3>
-	<table class="table table-striped table-condensed table-bordered">
-        <thead>
-            <tr>
-                <th>ID Guru</th>
-                <th>Name</th>
-                <th>NIP</th>                
-                <th>Description</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="x in teachers.content">
-                <td>{{x.id}}</td>
-                <td>{{x.name}}</td>
-                <td>{{x.nip}}</td>
-                <td>{{x.description}}</td>
-                <td>
-                    <a ng-click="edit(x)"><i class="icon-edit"></i></a>
-                    <a ng-click="remove(x)"><i class="icon-remove"></i></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-  </div>
-  <div class="tab-pane" id="new_teacher">
-  <h3>Input Teacher</h3>
-	<form class="form-horizontal" name="formEdit">
-				<div class="control-group" ng-class="{error: formEdit.id.$invalid}">
-					<label class="control-label" for="id">ID Guru : &nbsp;</label>
-					<input type="text" id="id" name="id" placeholder="ID guru" ng-model="currentPermission.value"required
-ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
-            <span ng-show="formEdit.id.$error.required" class="help-inline">required</span>
-            <span ng-show="formEdit.id.$error.permissionValueAvailable" class="help-inline">ID Sudah Ada</span>
-        </div>
-				<div class="control-group" ng-class="{error: formEdit.nama.$invalid}">
-					<label class="control-label" for="nama">Nama Guru : &nbsp;</label>
-					<input type="text" id="nama" name="nama" placeholder="Nama Guru" ng-model="currentPermission.value"required
-ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
-            <span ng-show="formEdit.nama.$error.required" class="help-inline">required</span>
-            <span ng-show="formEdit.nama.$error.permissionValueAvailable" class="help-inline">sudah ada yang pakai</span>
-        </div>
-		<div class="control-group" ng-class="{error: formEdit.nip.$invalid}">
-					<label class="control-label" for="nip">NIP : &nbsp;</label>
-					<input type="text" id="nip" name="nip" placeholder="NIP" ng-model="currentPermission.value"required
-ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
-            <span ng-show="formEdit.nip.$error.required" class="help-inline">required</span>
-            <span ng-show="formEdit.nip.$error.permissionValueAvailable" class="help-inline">NIP sudah ada</span>
-        </div>
-				<div class="control-group" ng-class="{error: formEdit.alamat.$invalid}">
-					<label class="control-label" for="keterangan">Keterangan : &nbsp;</label>
-					<input type="text" id="keterangan" name="keterangan" placeholder="Keterangan" ng-model="currentPermission.value"required
-ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
-            <span ng-show="formEdit.keterangan.$error.permissionValueAvailable" class="help-inline">sudah ada yang pakai</span>
-        </div>
-						<div class="form-actions">
-						<button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid">Save</button>
-						<button type="reset" class="btn" ng-click="baru()">Clear</button>
-						</div>
-					</form>
-  </div>
+<div class="row">
+    <div class="span10 well-large">
+        <h1>Form Teacher</h1>
+        <form class="form-horizontal" name="formEdit">
+            <div class="control-group" ng-class="{error: formEdit.name.$invalid}">
+                <label class="control-label" for="name">Nama Guru : &nbsp;</label>
+                <input type="text" id="name" name="name" placeholder="Nama Guru" ng-model="currentTeacher.name"required>
+                <span ng-show="formEdit.name.$error.required" class="help-inline">required</span>
+            </div>
+            <div class="control-group" ng-class="{error: formEdit.nip.$invalid}">
+                <label class="control-label" for="nip">NIP : &nbsp;</label>
+                <input type="text" id="nip" name="nip" placeholder="NIP" ng-model="currentTeacher.nip"required>
+                <span ng-show="formEdit.nip.$error.required" class="help-inline">required</span>
+            </div>
+            <div class="control-group" ng-class="{error: formEdit.description.$invalid}">
+                <label class="control-label" for="description">Keterangan : &nbsp;</label>
+                <input type="text" id="description" name="description" placeholder="Keterangan" ng-model="currentTeacher.description"required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary" ng-click="simpan()">Simpan</button>
+                <button type="button" class="btn" ng-click="baru()">Batal</button>
+            </div>
+        </form>
+    </div>
 </div>
- 
-<script>
-  $(function () {
-    $('#myTab a:last').tab('show');
-  })
-</script>
-		</div>
-</div>
+<div class="row">
+    <div class="span10 well-large">
+        <h1>Daftar Teacher</h1>
+
+        <a class="btn" ng-click="baru()">
+            <i class="icon-plus-sign"></i>Tambah Data
+        </a>
+        <hr>
+        <table class="table table-striped table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>NIP</th>                
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in teachers.content">
+                    <td>{{x.name}}</td>
+                    <td>{{x.nip}}</td>
+                    <td>{{x.description}}</td>
+                    <td>
+                        <a ng-click="edit(x)"><i class="icon-edit"></i></a>
+                        <a ng-click="remove(x)"><i class="icon-remove"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

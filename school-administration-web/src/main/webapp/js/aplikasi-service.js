@@ -124,34 +124,37 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
-	
-    .factory('StudentService', ['$resource', '$http', function($resource, $http){
+    
+    .factory('TeacherService', ['$resource', '$http', function($resource, $http){
         var service = {
-            student: $resource('master/student/:id'),
-            get: function(param, callback){ return this.student.get(param, callback) }, 
-            query: function(){ return this.student.query() },
+            teacher: $resource('master/teacher/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.teacher.get(param, callback) }, 
+            query: function(p, callback){ return this.teacher.queryPage({"page.page": p, "page.size": 10}, callback) },
             save: function(obj){
-                if(obj.id == null){
-                    return $http.post('master/student', obj);
-                } else {
-                    return $http.put('master/student/'+obj.id, obj);
-                }
+                    
+                    return $http.post('master/teacher', obj);
+                
+                   
             }, 
             remove: function(obj){
                 if(obj.id != null){
-                    return $http.delete('master/student/'+obj.id);
+                    return $http.delete('master/teacher/'+obj.id);
                 }
             }
         };
             
         return service;
     }])
-	
+    
     .factory('SchoolService', ['$resource', '$http', function($resource, $http){
         var service = {
-            school: $resource('master/school/:id'),
-            get: function(param, callback){ return this.school.get(param, callback) }, 
-            query: function(){ return this.school.query() },
+            teacher: $resource('master/school/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.teacher.get(param, callback) }, 
+            query: function(p, callback){ return this.teacher.queryPage({"page.page": p, "page.size": 10}, callback) },
             save: function(obj){
                 if(obj.id == null){
                     return $http.post('master/school', obj);
@@ -162,30 +165,6 @@ angular.module('belajar.service', ['ngResource'])
             remove: function(obj){
                 if(obj.id != null){
                     return $http.delete('master/school/'+obj.id);
-                }
-            }
-        };
-            
-        return service;
-    }])
-    
-    .factory('TeacherService', ['$resource', '$http', function($resource, $http){
-        var service = {
-            teacher: $resource('master/teacher/:id', {}, {
-                queryPage: {method:'GET', isArray: false}
-            }),
-            get: function(param, callback){ return this.teacher.get(param, callback) }, 
-            query: function(p, callback){ return this.teacher.queryPage({"page.page": p, "page.size": 10}, callback) },
-            save: function(obj){
-                if(obj.id == null){
-                    return $http.post('master/teacher', obj);
-                } else {
-                    return $http.put('master/teacher/'+obj.id, obj);
-                }
-            }, 
-            remove: function(obj){
-                if(obj.id != null){
-                    return $http.delete('master/teacher/'+obj.id);
                 }
             }
         };

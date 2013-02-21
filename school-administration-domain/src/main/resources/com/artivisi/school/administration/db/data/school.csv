@@ -1,2 +1,2 @@
-id,name,address,id_subdistrict,phone,website,email
-smk10jkt,SMK 10 Jakarta,Cililitan,krjt,02123332,http://www.smkn10jkt.ac.id,info@smkn10jkt.ac.id
+id,name,address,subdistrict,phone,website,email
+1,SMKN 10 Jakarta,Cililitan,Kramat Jati,02123332,http://www.smkn10jkt.ac.id,info@smkn10jkt.ac.id

@@ -26,17 +26,13 @@ ui-validate="{permissionValueAvailable: isPermissionValueAvailable}">
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="x in schools">
+					<tr ng-repeat="x in schools.content">
 						<td>{{x.name}}</td>
 						<td>{{x.address}}</td>
-						<td>{{x.subdistrict.name}}</td>
+						<td>{{x.subdistrict}}</td>
 						<td>{{x.phone}}</td>
 						<td>{{x.website}}</td>
 						<td>{{x.email}}</td>
-						<td>
-							<a ng-click="edit(x)"><i class="icon-edit"></i></a>
-							<a ng-click="remove(x)"><i class="icon-remove"></i></a>
-						</td>
 					</tr>
 				</tbody>
 			</table>

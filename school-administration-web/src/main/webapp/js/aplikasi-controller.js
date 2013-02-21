@@ -472,4 +472,35 @@ angular.module('belajar.controller',['belajar.service'])
             return angular.equals($scope.original, $scope.currentTeacher);
         }
     }])
+
+    .controller('SchoolController', ['$scope', 'SchoolService', function($scope, SchoolService){
+        $scope.schools = SchoolService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentSchool = SchoolService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentSchool = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            SchoolService.save($scope.currentSchool)
+            .success(function(){
+                $scope.schools = SchoolService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            SchoolService.remove(x).success(function(){
+                $scope.schools = SchoolService.query();
+            });
+        }
+    }])
 ;

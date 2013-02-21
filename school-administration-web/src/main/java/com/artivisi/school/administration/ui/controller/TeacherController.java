@@ -40,25 +40,28 @@ public class TeacherController {
         response.setHeader("Location", uri.toASCIIString());
     }
     
-    @RequestMapping(value="/master/teacher{id}", method=RequestMethod.PUT)
+    @RequestMapping(value="/master/teacher/{id}", method=RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Teacher t){
         Teacher teacherDb = teacherService.findTeacherById(id);
         if(teacherDb == null){
-            teacherService.save(t);
+            throw  new IllegalStateException();
         }
+        t.setId(teacherDb.getId());
+        teacherService.save(t);
     }
     
-    @RequestMapping(value="/master/teacher{id}", method= RequestMethod.DELETE)
+    @RequestMapping(value="/master/teacher/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Teacher teacherDb = teacherService.findTeacherById(id);
         if(teacherDb == null){
-            teacherService.delete(teacherDb);
+            throw new IllegalStateException();
         }
+        teacherService.delete(teacherDb);
     }
     
-    @RequestMapping(value="/master/teacher{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/master/teacher/{id}", method=RequestMethod.GET)
     @ResponseBody
     public Teacher findById(@PathVariable String id){
         return teacherService.findTeacherById(id);
