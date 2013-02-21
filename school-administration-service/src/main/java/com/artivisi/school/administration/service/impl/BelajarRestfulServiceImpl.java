@@ -3,7 +3,6 @@ package com.artivisi.school.administration.service.impl;
 
 
 
-import com.artivisi.school.administration.domain.Lesson;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
-import com.artivisi.school.administration.dao.LessonDao;
-
-
-
 import com.artivisi.school.administration.dao.MenuDao;
 import com.artivisi.school.administration.dao.PermissionDao;
 import com.artivisi.school.administration.dao.RoleDao;
@@ -46,8 +41,6 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private RoleDao roleDao;
     @Autowired
     private UserDao userDao;
-    @Autowired
-    private LessonDao lessonDao;
 
     
 

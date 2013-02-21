@@ -34,21 +34,15 @@ public class Teacher {
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
-    
-
-    @NotNull
-    @NotEmpty
-    @Column(nullable=false)
+        
+    @NotNull @NotEmpty
+    @Column(nullable = false)
     private String name;
     
     @NotNull
     @NotEmpty
     @Column(nullable=false)
     private String nip;
-    
-    @NotNull @NotEmpty
-    @Column(nullable = false)
-    private String nama;
     
     @NotNull @NotEmpty
     @Column(nullable = true)
@@ -68,14 +62,6 @@ public class Teacher {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public void setNama(String nama) {
-        this.nama = nama;
     }
 
     public String getName() {
