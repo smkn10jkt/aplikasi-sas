@@ -167,6 +167,7 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
+<<<<<<< HEAD
     
     .factory('StudentService', ['$resource', '$http', function($resource, $http){
         var service = {
@@ -181,10 +182,29 @@ angular.module('belajar.service', ['ngResource'])
             remove: function(obj){
                 if(obj.id != null){
                     return $http.delete('master/student/'+obj.id);
+=======
+.factory('MajorService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            major: $resource('master/major/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.major.get(param, callback) }, 
+            query: function(p, callback){ return this.major.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                    return $http.post('master/major', obj);
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/major/'+obj.id);
+>>>>>>> 7321006fab9e2270ffce5752792b5f5b502e00ce
                 }
             }
         };
             
         return service;
     }])
+<<<<<<< HEAD
 ;
+=======
+;
+>>>>>>> 7321006fab9e2270ffce5752792b5f5b502e00ce
