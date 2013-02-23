@@ -35,25 +35,25 @@
                 <div class="tab-pane" id="new_teacher">
                     <h3>Input Teacher</h3>
                     <form class="form-horizontal" name="formEdit">
-            <div class="control-group" ng-class="{error: formEdit.name.$invalid}">
-                <label class="control-label" for="name">Name : &nbsp;</label>
-                <input type="text" id="name" name="name" placeholder="Nama Guru" ng-model="currentTeacher.name"required>
-                <span ng-show="formEdit.name.$error.required" class="help-inline">required</span>
-            </div>
-            <div class="control-group" ng-class="{error: formEdit.nip.$invalid}">
-                <label class="control-label" for="nip">NIP : &nbsp;</label>
-                <input type="text" id="nip" name="nip" placeholder="NIP" ng-model="currentTeacher.nip"required>
-                <span ng-show="formEdit.nip.$error.required" class="help-inline">required</span>
-            </div>
-            <div class="control-group" ng-class="{error: formEdit.description.$invalid}">
-                <label class="control-label" for="description">Description : &nbsp;</label>
-                <input type="text" id="description" name="description" placeholder="Keterangan" ng-model="currentTeacher.description"required>
-            </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary" ng-click="simpan()" href="#list" data-toggle="tab">Save</button>
-                <button type="button" class="btn btn-info" ng-click="baru()" id="new_teacher">Cancel</button>
-            </div>
-        </form>
+                        <div class="control-group" ng-class="{error: formEdit.name.$invalid}">
+                            <label class="control-label" for="name">Name : &nbsp;</label>
+                            <input type="text" id="name" name="name" placeholder="Nama Guru" ng-model="currentTeacher.name"required>
+                            <span ng-show="formEdit.name.$error.required" class="help-inline">required</span>
+                        </div>
+                        <div class="control-group" ng-class="{error: formEdit.nip.$invalid}">
+                            <label class="control-label" for="nip">NIP : &nbsp;</label>
+                            <input type="text" id="nip" name="nip" placeholder="NIP" ng-model="currentTeacher.nip"required>
+                            <span ng-show="formEdit.nip.$error.required" class="help-inline">required</span>
+                        </div>
+                        <div class="control-group" ng-class="{error: formEdit.description.$invalid}">
+                            <label class="control-label" for="description">Description : &nbsp;</label>
+                            <input type="text" id="description" name="description" placeholder="Keterangan" ng-model="currentTeacher.description"required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-click="simpan()" ng-disabled="isClean() || formEdit.$invalid" disabled="disabled" href="#list" data-toggle="tab">Save</button>
+                            <button type="button" class="btn btn-info" ng-click="baru()" id="new_teacher">Cancel</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
