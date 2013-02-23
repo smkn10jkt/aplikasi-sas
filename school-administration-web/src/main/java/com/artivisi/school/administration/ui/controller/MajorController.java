@@ -33,7 +33,7 @@ import org.springframework.web.util.UriTemplate;
 public class MajorController {
     @Autowired private BelajarRestfulService belajarRestfulService;
     
-    @RequestMapping(value="/master/pk", method=RequestMethod.POST)
+    @RequestMapping(value="/master/major", method=RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void save(@RequestBody @Valid Major mj, HttpServletRequest request, HttpServletResponse response){
         belajarRestfulService.save(mj);
@@ -42,7 +42,7 @@ public class MajorController {
         response.setHeader("Location", uri.toASCIIString());
     }
     
-    @RequestMapping(value="/master/pk/{id}", method=RequestMethod.PUT)
+    @RequestMapping(value="/master/major/{id}", method=RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Major mj){
         Major majorDb = belajarRestfulService.findMajorById(id);
@@ -53,7 +53,7 @@ public class MajorController {
         belajarRestfulService.save(mj);
     }
     
-    @RequestMapping(value="/master/pk/{id}", method= RequestMethod.DELETE)
+    @RequestMapping(value="/master/major/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
         Major majorDb = belajarRestfulService.findMajorById(id);
@@ -63,13 +63,13 @@ public class MajorController {
         belajarRestfulService.delete(majorDb);
     }
     
-    @RequestMapping(value="/master/pk/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/master/major/{id}", method=RequestMethod.GET)
     @ResponseBody
     public Major findById(@PathVariable String id){
         return belajarRestfulService.findMajorById(id);
     }
     
-    @RequestMapping(value="/master/pk", method=RequestMethod.GET)
+    @RequestMapping(value="/master/major", method=RequestMethod.GET)
     @ResponseBody
     public Page<Major> findMajor(Pageable pagination){
         return belajarRestfulService.findAllMajor(pagination);
