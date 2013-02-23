@@ -167,4 +167,23 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
+.factory('MajorService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            major: $resource('master/pk/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.major.get(param, callback) }, 
+            query: function(p, callback){ return this.major.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                    return $http.post('master/pk', obj);
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/pk/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
 ;

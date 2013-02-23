@@ -498,9 +498,45 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return;
             }
-            SchoolService.remove(x).success(function(){
+            TeacherSchool.remove(x).success(function(){
                 $scope.schools = SchoolService.query();
             });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentSchool);
+        }
+    }])
+.controller('MajorController', ['$scope', 'MajorService', function($scope, MajorService){
+        $scope.majors = MajorService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentMajor = MajorService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentMajor = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            MajorService.save($scope.currentMajor)
+            .success(function(){
+                $scope.majors = MajorService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            MajorService.remove(x).success(function(){
+                $scope.majors = MajorService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentMajor);
         }
     }])
 ;

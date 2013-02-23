@@ -3,6 +3,7 @@ package com.artivisi.school.administration.service.impl;
 
 
 
+import com.artivisi.school.administration.domain.Major;
 import com.artivisi.school.administration.domain.School;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
+import com.artivisi.school.administration.dao.MajorDao;
 import com.artivisi.school.administration.dao.MenuDao;
 import com.artivisi.school.administration.dao.PermissionDao;
 import com.artivisi.school.administration.dao.RoleDao;
@@ -45,6 +47,8 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private UserDao userDao;
     @Autowired
     private SchoolDao schoolDao;
+    @Autowired
+    private MajorDao majorDao;
 
     
 
@@ -310,6 +314,34 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Override
     public Long countAllSchool() {
         return schoolDao.count();
+    }
+
+    @Override
+    public void save(Major mj) {
+        majorDao.save(mj);
+    }
+
+    @Override
+    public void delete(Major mj) {
+        majorDao.delete(mj);
+    }
+
+    @Override
+    public Major findMajorById(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return majorDao.findOne(id);
+    }
+
+    @Override
+    public Page<Major> findAllMajor(Pageable pageable) {
+        return majorDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllMajor() {
+        return majorDao.count();
     }
 
 }
