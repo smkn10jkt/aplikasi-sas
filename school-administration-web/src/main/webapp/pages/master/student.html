@@ -60,16 +60,9 @@
                             <span ng-show="formEdit.name.$error.required" class="help-inline">required</span>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="grade">Grade : &nbsp;</label>
-                            <select id="grade" name="grade">
-                                <option>X</option>
-                                <option>XI</option>
-                                <option>XII</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="majors">Majors : &nbsp;</label>
-                            <select id="majors" name="majors">
+                            <label class="control-label" for="role">Grade : &nbsp;</label>
+                            <select ui-select2 ng-model="currentStudent.majors.id" data-placeholder="-- Select One --">
+                                <option></option>
                                 <option>Akutansi</option>
                                 <option>Adm. Perkantoran</option>
                                 <option>Pemasaran</option>
@@ -77,13 +70,13 @@
                             </select>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="religion">Religion : &nbsp;</label>
-                            <select id="religion" name="religion">
+                            <label class="control-label" for="role">Religion : &nbsp;</label>
+                            <select ui-select2 ng-model="currentStudent.majors.id" data-placeholder="-- Select One --">
+                                <option></option>
                                 <option>Islam</option>
-                                <option>Kristen Katholik</option>
-                                <option>Kristen Protestan</option>
-                                <option>Hindu</option>
-                                <option>Budha</option>
+                                <option>Adm. Perkantoran</option>
+                                <option>Pemasaran</option>
+                                <option>Rekayasa Perangkat Lunak</option>
                             </select>
                         </div>
                         <div class="control-group">
@@ -94,7 +87,7 @@
                             </select>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="birthday">Birthday : &nbsp;</label>
+                            <label class="control-label" for="birthday" ng-model="currentStudent.birthday">Birthday : &nbsp;</label>
                             <div id="datetimepicker4" class="input-append">
                                 <input data-format="dd-MM-yyyy" type="text" name="birthday"/>
                                 <span class="add-on">

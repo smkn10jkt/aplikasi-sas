@@ -7,6 +7,7 @@ import com.artivisi.school.administration.domain.Permission;
 import com.artivisi.school.administration.domain.Role;
 
 import com.artivisi.school.administration.domain.School;
+import com.artivisi.school.administration.domain.Student;
 import com.artivisi.school.administration.domain.User;
 
 import java.util.List;
@@ -62,4 +63,11 @@ public interface BelajarRestfulService extends MonitoredService {
     School findSchoolById(String id);
     Page<School> findAllSchool(Pageable pageable);
     Long countAllSchool();
+    
+    // student
+    void save(Student student);
+    void delete(Student student);
+    Student findStudentById(String id);
+    Page<Student> findAllStudent(Pageable pageable);
+    Long countAllStudent();
 }
