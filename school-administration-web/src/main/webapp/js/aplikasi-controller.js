@@ -498,7 +498,7 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return;
             }
-            TeacherSchool.remove(x).success(function(){
+            SchoolService.remove(x).success(function(){
                 $scope.schools = SchoolService.query();
             });
         }
@@ -506,44 +506,25 @@ angular.module('belajar.controller',['belajar.service'])
             return angular.equals($scope.original, $scope.currentSchool);
         }
     }])
-<<<<<<< HEAD
 
     .controller('StudentController', ['$scope', 'StudentService', function($scope, StudentService){
         $scope.students = StudentService.query();
-=======
-.controller('MajorController', ['$scope', 'MajorService', function($scope, MajorService){
-        $scope.majors = MajorService.query();
->>>>>>> 7321006fab9e2270ffce5752792b5f5b502e00ce
         $scope.edit = function(x){
             if(x.id == null){
                 return; 
             }
-<<<<<<< HEAD
             $scope.currentStudent = StudentService.get({id: x.id}, function(data){
-=======
-            $scope.currentMajor = MajorService.get({id: x.id}, function(data){
->>>>>>> 7321006fab9e2270ffce5752792b5f5b502e00ce
                 $scope.original = angular.copy(data);
             });
         };
         $scope.baru = function(){
-<<<<<<< HEAD
             $scope.currentStudent = null;
             $scope.original = null;
         }
         $scope.simpan = function(){
-            StudentService.save($scope.currentStudent)
+            SchoolStudent.save($scope.currentStudent)
             .success(function(){
                 $scope.students = StudentService.query();
-=======
-            $scope.currentMajor = null;
-            $scope.original = null;
-        }
-        $scope.simpan = function(){
-            MajorService.save($scope.currentMajor)
-            .success(function(){
-                $scope.majors = MajorService.query();
->>>>>>> 7321006fab9e2270ffce5752792b5f5b502e00ce
                 $scope.baru();
             });
         }
@@ -551,21 +532,46 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return;
             }
-<<<<<<< HEAD
             StudentService.remove(x).success(function(){
                 $scope.students = StudentService.query();
             });
         }
         $scope.isClean = function(){
             return angular.equals($scope.original, $scope.currentStudent);
-=======
-            MajorService.remove(x).success(function(){
+        }
+    }])
+
+    .controller('MajorController', ['$scope', 'MajorService', function($scope, MajorService){
+        $scope.majors = MajorService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentMajor = MajorService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentMajor = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            MajorService.save($scope.currentMajor)
+            .success(function(){
                 $scope.majors = MajorService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            MajorService.remove(x).success(function(){
+                $scope.schools = MajorService.query();
             });
         }
         $scope.isClean = function(){
             return angular.equals($scope.original, $scope.currentMajor);
->>>>>>> 7321006fab9e2270ffce5752792b5f5b502e00ce
         }
     }])
 ;
