@@ -4,21 +4,19 @@
  */
 package com.artivisi.school.administration.domain;
 
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.GeneratedValue;
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.Column;
 
 /**
  *
  * @author dsemuts
  */
-
 @Entity
 @Table(name = "m_teacher")
 public class Teacher {
@@ -26,18 +24,17 @@ public class Teacher {
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
-        
+    
     @NotNull @NotEmpty
     @Column(nullable = false)
     private String name;
     
-    @NotNull
-    @NotEmpty
-    @Column(nullable=false)
+    @NotNull @NotEmpty
+    @Column(nullable = false)
     private String nip;
     
     @NotNull @NotEmpty
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String description;
 
     public String getDescription() {
@@ -71,6 +68,6 @@ public class Teacher {
     public void setNip(String nip) {
         this.nip = nip;
     }
-
+    
     
 }

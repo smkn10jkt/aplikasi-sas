@@ -107,9 +107,7 @@
             <column name="nip" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="description" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
+            <column name="description" type="varchar(255)" />
         </createTable>
         <createTable tableName="m_school">
             <column name="id" type="varchar(255)">
@@ -275,12 +273,6 @@
             <column header="active" type="BOOLEAN"/>
             <column header="id_role" type="STRING"/>
         </loadData>
-        <loadData tableName="m_teacher" file="com/artivisi/school/administration/db/data/teacher.csv">
-            <column header="id" type="STRING"/>
-            <column header="name" type="STRING"/>
-            <column header="nip" type="STRING"/>
-            <column header="description" type="STRING"/>
-        </loadData>
         <loadData tableName="m_school" file="com/artivisi/school/administration/db/data/school.csv">
             <column header="id" type="STRING"/>
             <column header="name" type="STRING"/>
@@ -306,6 +298,12 @@
         <loadData tableName="m_major" file="com/artivisi/school/administration/db/data/major.csv">
             <column header="id" type="STRING"/>
             <column header="name" type="STRING"/>
+            <column header="description" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_teacher" file="com/artivisi/school/administration/db/data/teacher.csv">
+            <column header="id" type="STRING"/>
+            <column header="name" type="STRING"/>
+            <column header="nip" type="STRING"/>
             <column header="description" type="STRING"/>
         </loadData>
     </changeSet>

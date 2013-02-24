@@ -9,6 +9,7 @@ import com.artivisi.school.administration.domain.Role;
 
 import com.artivisi.school.administration.domain.School;
 import com.artivisi.school.administration.domain.Student;
+import com.artivisi.school.administration.domain.Teacher;
 import com.artivisi.school.administration.domain.User;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public interface BelajarRestfulService extends MonitoredService {
 	void save(ApplicationConfig ac);
 	void delete(ApplicationConfig ac);
 	ApplicationConfig findApplicationConfigById(String id);
-    Page<ApplicationConfig> findAllApplicationConfigs(Pageable pageable);
+        Page<ApplicationConfig> findAllApplicationConfigs(Pageable pageable);
 	Long countAllApplicationConfigs();
 	Long countApplicationConfigs(String search);
 	Page<ApplicationConfig> findApplicationConfigs(String search, Pageable pageable);
@@ -79,4 +80,11 @@ public interface BelajarRestfulService extends MonitoredService {
     Major findMajorById(String id);
     Page<Major> findAllMajor(Pageable pageable);
     Long countAllMajor();
+    
+    //teacher
+    void save(Teacher t);
+    void delete(Teacher t);
+    Teacher findTeacherById(String id);
+    Page<Teacher> findAllTeacher(Pageable pageable);
+    Long countAllTeacher();
 }

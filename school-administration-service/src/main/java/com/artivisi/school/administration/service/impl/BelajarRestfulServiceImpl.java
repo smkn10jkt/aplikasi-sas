@@ -6,6 +6,7 @@ package com.artivisi.school.administration.service.impl;
 import com.artivisi.school.administration.domain.Major;
 import com.artivisi.school.administration.domain.School;
 import com.artivisi.school.administration.domain.Student;
+import com.artivisi.school.administration.domain.Teacher;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import com.artivisi.school.administration.dao.PermissionDao;
 import com.artivisi.school.administration.dao.RoleDao;
 import com.artivisi.school.administration.dao.SchoolDao;
 import com.artivisi.school.administration.dao.StudentDao;
+import com.artivisi.school.administration.dao.TeacherDao;
 import com.artivisi.school.administration.dao.UserDao;
 import com.artivisi.school.administration.domain.ApplicationConfig;
 import com.artivisi.school.administration.domain.Menu;
@@ -53,7 +55,8 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private StudentDao studentDao;
     @Autowired
     private MajorDao majorDao;
-
+    @Autowired
+    private TeacherDao teacherDao;
     
 
     @Override
@@ -375,5 +378,35 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     public Long countAllMajor() {
         return majorDao.count();
     }
+
+    @Override
+    public void save(Teacher t) {
+        teacherDao.save(t);
+    }
+
+    @Override
+    public void delete(Teacher t) {
+        teacherDao.delete(t);
+    }
+
+    @Override
+    public Teacher findTeacherById(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return teacherDao.findOne(id);
+    }
+
+    @Override
+    public Page<Teacher> findAllTeacher(Pageable pageable) {
+        return teacherDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllTeacher() {
+        return teacherDao.count();
+    }
+
+    
 
 }

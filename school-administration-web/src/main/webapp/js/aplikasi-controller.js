@@ -439,40 +439,6 @@ angular.module('belajar.controller',['belajar.service'])
         }
     }])
 
-    .controller('TeacherController', ['$scope', 'TeacherService', function($scope, TeacherService){
-        $scope.teachers = TeacherService.query();
-        $scope.edit = function(x){
-            if(x.id == null){
-                return; 
-            }
-            $scope.currentTeacher = TeacherService.get({id: x.id}, function(data){
-                $scope.original = angular.copy(data);
-            });
-        };
-        $scope.baru = function(){
-            $scope.currentTeacher = null;
-            $scope.original = null;
-        }
-        $scope.simpan = function(){
-            TeacherService.save($scope.currentTeacher)
-            .success(function(){
-                $scope.teachers = TeacherService.query();
-                $scope.baru();
-            });
-        }
-        $scope.remove = function(x){
-            if(x.id == null){
-                return;
-            }
-            TeacherService.remove(x).success(function(){
-                $scope.teachers = TeacherService.query();
-            });
-        }
-        $scope.isClean = function(){
-            return angular.equals($scope.original, $scope.currentTeacher);
-        }
-    }])
-
     .controller('SchoolController', ['$scope', 'SchoolService', function($scope, SchoolService){
         $scope.schools = SchoolService.query();
         $scope.edit = function(x){
@@ -568,11 +534,45 @@ angular.module('belajar.controller',['belajar.service'])
                 return;
             }
             MajorService.remove(x).success(function(){
-                $scope.schools = MajorService.query();
+                $scope.majors = MajorService.query();
             });
         }
         $scope.isClean = function(){
             return angular.equals($scope.original, $scope.currentMajor);
+        }
+    }])
+
+    .controller('TeacherController', ['$scope', 'TeacherService', function($scope, TeacherService){
+        $scope.teachers = TeacherService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentTeacher = TeacherService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentTeacher = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            TeacherService.save($scope.currentTeacher)
+            .success(function(){
+                $scope.teachers = TeacherService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            TeacherService.remove(x).success(function(){
+                $scope.teachers = TeacherService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentTeacher);
         }
     }])
 ;

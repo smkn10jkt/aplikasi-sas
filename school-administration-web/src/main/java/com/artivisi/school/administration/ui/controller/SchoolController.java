@@ -68,7 +68,7 @@ public class SchoolController {
     
     @RequestMapping(value="/master/school", method=RequestMethod.GET)
     @ResponseBody
-    public Page<School> findTeacher(Pageable pagination){
+    public Page<School> findScholl(Pageable pagination){
         return belajarRestfulService.findAllSchool(pagination);
     }
 }
