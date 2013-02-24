@@ -53,6 +53,7 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
+            <column name="description" type="varchar(255)" />
         </createTable>
         
         <createTable tableName="c_security_role">
@@ -146,7 +147,7 @@
             <column name="grade" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="majors" type="varchar(255)">
+            <column name="id_major" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             <column name="religion" type="varchar(255)">
@@ -230,6 +231,13 @@
             referencedTableName="c_security_role"
             referencedColumnNames="id"
         />
+        <addForeignKeyConstraint
+            constraintName="fk_student_major"
+            baseColumnNames="id_major"
+            baseTableName="m_student"
+            referencedTableName="m_major"
+            referencedColumnNames="id"
+        />
     </changeSet>
     <changeSet id="3" author="endy">
         <loadData tableName="c_security_menu" file="com/artivisi/school/administration/db/data/menu.csv">
@@ -287,7 +295,7 @@
             <column header="nis" type="STRING"/>
             <column header="name" type="STRING"/>
             <column header="grade" type="STRING"/>
-            <column header="majors" type="STRING"/>
+            <column header="id_major" type="STRING"/>
             <column header="religion" type="STRING"/>
             <column header="sex" type="STRING"/>
             <column header="birth" type="STRING"/>
@@ -298,6 +306,7 @@
         <loadData tableName="m_major" file="com/artivisi/school/administration/db/data/major.csv">
             <column header="id" type="STRING"/>
             <column header="name" type="STRING"/>
+            <column header="description" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>

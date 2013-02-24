@@ -507,8 +507,9 @@ angular.module('belajar.controller',['belajar.service'])
         }
     }])
 
-    .controller('StudentController', ['$scope', 'StudentService', function($scope, StudentService){
+    .controller('StudentController', ['$scope', 'StudentService', 'MajorService', function($scope, StudentService, MajorService){
         $scope.students = StudentService.query();
+        $scope.majors = MajorService.query();
         $scope.edit = function(x){
             if(x.id == null){
                 return; 
@@ -522,7 +523,7 @@ angular.module('belajar.controller',['belajar.service'])
             $scope.original = null;
         }
         $scope.simpan = function(){
-            SchoolStudent.save($scope.currentStudent)
+            StudentService.save($scope.currentStudent)
             .success(function(){
                 $scope.students = StudentService.query();
                 $scope.baru();

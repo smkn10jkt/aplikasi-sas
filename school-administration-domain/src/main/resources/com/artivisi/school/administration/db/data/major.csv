@@ -1,4 +1,2 @@
-id,name
-1,RPL
-2,MM
-3,TKJ
+id,name,description
+rpl,RPL,Rekayasa Perangkat Lunak

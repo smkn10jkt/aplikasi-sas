@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
@@ -36,9 +38,10 @@ public class Student {
     @Column(nullable = false)
     private String grade;
     
-    @NotNull @NotEmpty
-    @Column(nullable = false)
-    private String majors;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "id_major", nullable = false)
+    private Major major;
     
     @NotNull @NotEmpty
     @Column(nullable = false)
@@ -64,6 +67,14 @@ public class Student {
     @Column(nullable = false)
     private String phone;
 
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+    
     public String getAddress() {
         return address;
     }
@@ -94,14 +105,6 @@ public class Student {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getMajors() {
-        return majors;
-    }
-
-    public void setMajors(String majors) {
-        this.majors = majors;
     }
 
     public String getName() {

@@ -5,9 +5,7 @@
 package com.artivisi.school.administration.ui.controller;
 
 import com.artivisi.school.administration.domain.Major;
-import com.artivisi.school.administration.domain.Teacher;
 import com.artivisi.school.administration.service.BelajarRestfulService;
-import com.artivisi.school.administration.service.TeacherService;
 import java.net.URI;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

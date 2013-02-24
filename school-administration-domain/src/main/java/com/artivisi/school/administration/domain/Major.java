@@ -28,7 +28,19 @@ public class Major {
     @NotNull @NotEmpty
     @Column(nullable = false)
     private String name;
+    
+    @NotNull @NotEmpty
+    @Column(nullable = false)
+    private String description;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
     public String getId() {
         return id;
     }
