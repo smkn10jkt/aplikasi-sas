@@ -3,7 +3,11 @@ package com.artivisi.school.administration.service.impl;
 
 
 
+<<<<<<< HEAD
+import com.artivisi.school.administration.domain.Kelas;
+=======
 import com.artivisi.school.administration.domain.Major;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
 import com.artivisi.school.administration.domain.School;
 import com.artivisi.school.administration.domain.Student;
 import com.artivisi.school.administration.domain.Teacher;
@@ -16,7 +20,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
+<<<<<<< HEAD
+import com.artivisi.school.administration.dao.KelasDao;
+=======
 import com.artivisi.school.administration.dao.MajorDao;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
 import com.artivisi.school.administration.dao.MenuDao;
 import com.artivisi.school.administration.dao.PermissionDao;
 import com.artivisi.school.administration.dao.RoleDao;
@@ -52,11 +60,19 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Autowired
     private SchoolDao schoolDao;
     @Autowired
+<<<<<<< HEAD
+    private KelasDao kelasDao;
+=======
     private StudentDao studentDao;
     @Autowired
     private MajorDao majorDao;
+<<<<<<< HEAD
     @Autowired
     private TeacherDao teacherDao;
+=======
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
+
+>>>>>>> 0bf4d6e830fe9a7ac7c2a22917402cbf44a1ce79
     
 
     @Override
@@ -324,6 +340,34 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     }
 
     @Override
+<<<<<<< HEAD
+    public void save(Kelas kelas) {
+        kelasDao.save(kelas);
+    }
+
+    @Override
+    public void delete(Kelas kelas) {
+        kelasDao.delete(kelas);
+    }
+
+    @Override
+    public Kelas findKelasById(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return kelasDao.findOne(id);
+        
+    }
+
+    @Override
+    public Page<Kelas> findAllKelas(Pageable pageable) {
+       return kelasDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllKelas() {
+       return kelasDao.count();
+=======
     public void save(Student student) {
         studentDao.save(student);
     }
@@ -377,6 +421,7 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Override
     public Long countAllMajor() {
         return majorDao.count();
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
     }
 
     @Override

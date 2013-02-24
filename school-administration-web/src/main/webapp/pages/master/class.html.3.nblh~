@@ -34,7 +34,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>``
+                </div>
                 <div class="tab-pane" id="new_kelas">
                     <h3>Input Class</h3>
                     <form class="form-horizontal" name="formEdit">
@@ -59,9 +59,9 @@
                         <div class="control-group" ng-class="{error: formEdit.grade.$invalid}">
                             <label class="control-label" for="grade">Grade : &nbsp;</label>
                             <select id="grade" name="grade" ng-model="currentKelas.grade">
-                                <option value="X">X</option>
-                                <option value="XI">XI</option>
-                                <option value="XII">XII</option>
+                                <option>X</option>
+                                <option>XI</option>
+                                <option>XII</option>
                             </select>
                         </div>
                         <div class="control-group" ng-class="{error: formEdit.name.$invalid}">

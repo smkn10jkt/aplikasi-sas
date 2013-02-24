@@ -2,7 +2,11 @@ package com.artivisi.school.administration.service;
 
 
 import com.artivisi.school.administration.domain.ApplicationConfig;
+<<<<<<< HEAD
+import com.artivisi.school.administration.domain.Kelas;
+=======
 import com.artivisi.school.administration.domain.Major;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
 import com.artivisi.school.administration.domain.Menu;
 import com.artivisi.school.administration.domain.Permission;
 import com.artivisi.school.administration.domain.Role;
@@ -66,6 +70,14 @@ public interface BelajarRestfulService extends MonitoredService {
     Page<School> findAllSchool(Pageable pageable);
     Long countAllSchool();
     
+<<<<<<< HEAD
+    // kelas
+    void save(Kelas kelas);
+    void delete(Kelas kelas);
+    Kelas findKelasById(String id);
+    Page<Kelas> findAllKelas(Pageable pageable);
+    Long countAllKelas();
+=======
 
     // student
     void save(Student student);
@@ -80,6 +92,7 @@ public interface BelajarRestfulService extends MonitoredService {
     Major findMajorById(String id);
     Page<Major> findAllMajor(Pageable pageable);
     Long countAllMajor();
+<<<<<<< HEAD
     
     //teacher
     void save(Teacher t);
@@ -87,4 +100,7 @@ public interface BelajarRestfulService extends MonitoredService {
     Teacher findTeacherById(String id);
     Page<Teacher> findAllTeacher(Pageable pageable);
     Long countAllTeacher();
+=======
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
+>>>>>>> 0bf4d6e830fe9a7ac7c2a22917402cbf44a1ce79
 }

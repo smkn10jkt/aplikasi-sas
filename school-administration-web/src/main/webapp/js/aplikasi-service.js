@@ -209,8 +209,29 @@ angular.module('belajar.service', ['ngResource'])
         };
             
         return service;
+<<<<<<< HEAD
     }])      
     .factory('MajorService', ['$resource', '$http', function($resource, $http){
+=======
+    }])
+<<<<<<< HEAD
+.factory('KelasService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            kelas: $resource('master/class/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.kelas.get(param, callback) }, 
+            query: function(p, callback){ return this.kelas.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                    return $http.post('master/class', obj);
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/class/'+obj.id);
+=======
+    
+    .factory('StudentService', ['$resource', '$http', function($resource, $http){
+>>>>>>> 0bf4d6e830fe9a7ac7c2a22917402cbf44a1ce79
         var service = {
             major: $resource('master/major/:id', {}, {
                 queryPage: {
@@ -261,11 +282,20 @@ angular.module('belajar.service', ['ngResource'])
             }, 
             remove: function(obj){
                 if(obj.id != null){
+<<<<<<< HEAD
                     return $http.delete('master/teacher/'+obj.id);
+=======
+                    return $http.delete('master/major/'+obj.id);
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
+>>>>>>> 0bf4d6e830fe9a7ac7c2a22917402cbf44a1ce79
                 }
             }
         };
             
         return service;
     }])
+<<<<<<< HEAD
 ;
+=======
+;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc

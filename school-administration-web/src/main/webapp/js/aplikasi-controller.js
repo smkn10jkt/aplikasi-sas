@@ -575,4 +575,34 @@ angular.module('belajar.controller',['belajar.service'])
             return angular.equals($scope.original, $scope.currentTeacher);
         }
     }])
+.controller('KelasController', ['$scope', 'KelasService', function($scope, KelasService){
+        $scope.kelases = KelasService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentKelas = KelasService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentKelas = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            KelasService.save($scope.currentKelas)
+            .success(function(){
+                $scope.kelases = KelasService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            KelasService.remove(x).success(function(){
+                $scope.kelases = KelasService.query();
+            });
+        }
+    }])
 ;
