@@ -666,4 +666,38 @@ angular.module('belajar.controller',['belajar.service'])
             return angular.equals($scope.original, $scope.currentLesson);
         }
     }])
+    .controller('CasController', ['$scope', 'CasService', function($scope, CasService){
+        $scope.cass = CasService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            $scope.currentCas = CasService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentCas = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            CasService.save($scope.currentCas)
+            .success(function(){
+                $scope.cass = CasService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            CasService.remove(x).success(function(){
+                $scope.cass = CasService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentCas);
+        }
+    }])
+
 ;

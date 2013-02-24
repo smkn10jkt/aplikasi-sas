@@ -137,7 +137,7 @@
 						<td>{{x.note}}</td>
 						<td>{{x.statement}}</td>
 						<td>
-							<a ng-click="edit(x)" href="#myModal" data-toggle="modal"><i class="icon-edit"></i></a>
+							<a ng-click="edit(x)"><i class="icon-edit"></i></a>
 							<a ng-click="remove(x)"><i class="icon-remove"></i></a>
 						</td>
 					</tr>

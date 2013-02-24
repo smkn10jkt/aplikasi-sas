@@ -319,5 +319,23 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
-
+.factory('CasService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            cas: $resource('master/cas/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.cas.get(param, callback) }, 
+            query: function(p, callback){ return this.cas.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                    return $http.post('master/cas', obj);
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/cas/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
 ;

@@ -2,6 +2,7 @@ package com.artivisi.school.administration.service;
 
 
 import com.artivisi.school.administration.domain.ApplicationConfig;
+import com.artivisi.school.administration.domain.Cas;
 import com.artivisi.school.administration.domain.Kelas;
 import com.artivisi.school.administration.domain.Lesson;
 import com.artivisi.school.administration.domain.Major;
@@ -103,4 +104,11 @@ public interface BelajarRestfulService extends MonitoredService {
     Lesson findLessonById(String id);
     Page<Lesson> findAllLesson(Pageable pageable);
     Long countAllLesson();
+    
+    // cas
+    void save(Cas c);
+    void delete(Cas c);
+    Cas findCasById(String id);
+    Page<Cas> findAllCas(Pageable pageable);
+    Long countAllCas();
 }

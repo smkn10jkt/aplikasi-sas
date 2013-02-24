@@ -185,6 +185,39 @@
             </column>
         </createTable>
         
+         <createTable tableName="m_cas">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="semester" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="discipline" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="behaviour" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="craft" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="ill" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="permit" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="absent" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="note" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="statement" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
         <createTable tableName="m_lesson">
             <column name="id" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false" />
@@ -377,6 +410,18 @@
             <column header="kkm" type="STRING"/>
             <column header="ctotal" type="STRING"/>
             <column header="description" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_cas" file="com/artivisi/school/administration/db/data/cas.csv">
+            <column header="id" type="STRING"/>
+            <column header="semester" type="STRING"/>
+            <column header="discipline" type="STRING"/>
+            <column header="behaviour" type="STRING"/>
+            <column header="craft" type="STRING"/>
+            <column header="ill" type="STRING"/>
+            <column header="permit" type="STRING"/>
+            <column header="absent" type="STRING"/>
+            <column header="note" type="STRING"/>
+            <column header="statement" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>
