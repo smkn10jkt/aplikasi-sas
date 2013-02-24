@@ -34,7 +34,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentConfig = ApplicationConfigService.get({configId: x.id}, function(data){
+            $scope.currentConfig = ApplicationConfigService.get({
+                configId: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
         };
@@ -90,7 +92,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentMenu = SystemMenuService.get({id: x.id}, function(data){
+            $scope.currentMenu = SystemMenuService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
             
@@ -127,7 +131,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentPermission = PermissionService.get({id: x.id}, function(data){
+            $scope.currentPermission = PermissionService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
         };
@@ -179,7 +185,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentRole = RoleService.get({id: x.id}, function(data){
+            $scope.currentRole = RoleService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
             RoleService.unselectedPermission(x).success(function(data){
@@ -260,7 +268,9 @@ angular.module('belajar.controller',['belajar.service'])
         $scope.saveSelectedPermission = function(){
             console.log($scope.selectedPermission);
             for ( var i = 0; i < $scope.selectedPermission.length; i++) {
-                var p = {id: $scope.selectedPermission[i]};
+                var p = {
+                    id: $scope.selectedPermission[i]
+                    };
                 $scope.currentRole.permissionSet.push(p);
             }
             RoleService.save($scope.currentRole)
@@ -341,7 +351,9 @@ angular.module('belajar.controller',['belajar.service'])
         $scope.saveSelectedMenu = function(){
             console.log($scope.selectedMenu);
             for ( var i = 0; i < $scope.selectedMenu.length; i++) {
-                var p = {id: $scope.selectedMenu[i]};
+                var p = {
+                    id: $scope.selectedMenu[i]
+                    };
                 $scope.currentRole.menuSet.push(p);
             }
             RoleService.save($scope.currentRole)
@@ -396,7 +408,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentUser = UserService.get({id: x.id}, function(data){
+            $scope.currentUser = UserService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
         };
@@ -445,7 +459,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentSchool = SchoolService.get({id: x.id}, function(data){
+            $scope.currentSchool = SchoolService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
         };
@@ -480,7 +496,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentStudent = StudentService.get({id: x.id}, function(data){
+            $scope.currentStudent = StudentService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
         };
@@ -514,7 +532,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentMajor = MajorService.get({id: x.id}, function(data){
+            $scope.currentMajor = MajorService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
         };
@@ -548,7 +568,9 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return; 
             }
-            $scope.currentTeacher = TeacherService.get({id: x.id}, function(data){
+            $scope.currentTeacher = TeacherService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
         };
@@ -575,13 +597,16 @@ angular.module('belajar.controller',['belajar.service'])
             return angular.equals($scope.original, $scope.currentTeacher);
         }
     }])
-.controller('KelasController', ['$scope', 'KelasService', function($scope, KelasService){
+
+    .controller('KelasController', ['$scope', 'KelasService', function($scope, KelasService){
         $scope.kelases = KelasService.query();
         $scope.edit = function(x){
             if(x.id == null){
                 return; 
             }
-            $scope.currentKelas = KelasService.get({id: x.id}, function(data){
+            $scope.currentKelas = KelasService.get({
+                id: x.id
+                }, function(data){
                 $scope.original = angular.copy(data);
             });
         };
