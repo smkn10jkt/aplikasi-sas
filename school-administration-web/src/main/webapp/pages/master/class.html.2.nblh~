@@ -14,7 +14,7 @@
                 <form class="form-horizontal" name="formEdit">
                     <div class="control-group">
                         <label class="control-label" for="majors">Major : &nbsp;</label>
-                        <select ui-select2 id="majors" name="majors" ng-model="currentKelas.majors.id" data-placeholder="-- Select One --">
+                        <select ui-select2 id="majors" name="majors" ng-model="currentKelas.majors" data-placeholder="-- Select One --">
                             <option></option>
                             <option ng-repeat = "major in majors.content" value="{{major.id}}" >{{major.description}}</option>
                         </select>
@@ -69,7 +69,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="x in kelases.content">
-                    <td>{{x.majors.description}}</td>
+                    <td>{{x.majors}}</td>
                     <td>{{x.grade}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.homeroom}}</td>

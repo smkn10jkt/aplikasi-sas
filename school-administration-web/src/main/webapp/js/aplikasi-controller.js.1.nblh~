@@ -600,7 +600,6 @@ angular.module('belajar.controller',['belajar.service'])
 
     .controller('KelasController', ['$scope', 'KelasService', 'MajorService', function($scope, KelasService, MajorService){
         $scope.kelases = KelasService.query();
-        console.log("isi kelases --> ", $scope.kelases);
         $scope.majors = MajorService.query();
         $scope.edit = function(x){
             if(x.id == null){
@@ -632,74 +631,4 @@ angular.module('belajar.controller',['belajar.service'])
             });
         }
     }])
-
-.controller('LessonController', ['$scope', 'LessonService', 'MajorService', function($scope, LessonService, MajorService){
-        $scope.lessons = LessonService.query();
-        $scope.majors = MajorService.query();
-        $scope.edit = function(x){
-            if(x.id == null){
-                return; 
-            }
-            
-             $scope.currentLesson = LessonService.get({id: x.id}, function(data){
-                $scope.original = angular.copy(data);
-            });
-        };
-        $scope.baru = function(){
-            $scope.currentLesson = null;
-            $scope.original = null;
-        }
-        $scope.simpan = function(){
-            LessonService.save($scope.currentLesson)
-            .success(function(){
-                $scope.lessons = LessonService.query();
-                $scope.baru();
-            });
-        }
-        $scope.remove = function(x){
-            if(x.id == null){
-                return;
-            }
-            LessonService.remove(x).success(function(){
-                $scope.lessons = LessonService.query();
-            });
-        }
-        $scope.isClean = function(){
-            return angular.equals($scope.original, $scope.currentLesson);
-        }
-    }])
-    .controller('CasController', ['$scope', 'CasService', function($scope, CasService){
-        $scope.cass = CasService.query();
-        $scope.edit = function(x){
-            if(x.id == null){
-                return; 
-            }
-            $scope.currentCas = CasService.get({id: x.id}, function(data){
-                $scope.original = angular.copy(data);
-            });
-        };
-        $scope.baru = function(){
-            $scope.currentCas = null;
-            $scope.original = null;
-        }
-        $scope.simpan = function(){
-            CasService.save($scope.currentCas)
-            .success(function(){
-                $scope.cass = CasService.query();
-                $scope.baru();
-            });
-        }
-        $scope.remove = function(x){
-            if(x.id == null){
-                return;
-            }
-            CasService.remove(x).success(function(){
-                $scope.cass = CasService.query();
-            });
-        }
-        $scope.isClean = function(){
-            return angular.equals($scope.original, $scope.currentCas);
-        }
-    }])
-
 ;
