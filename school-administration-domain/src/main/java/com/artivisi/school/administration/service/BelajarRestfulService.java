@@ -3,6 +3,7 @@ package com.artivisi.school.administration.service;
 
 import com.artivisi.school.administration.domain.ApplicationConfig;
 import com.artivisi.school.administration.domain.Kelas;
+import com.artivisi.school.administration.domain.Lesson;
 import com.artivisi.school.administration.domain.Major;
 import com.artivisi.school.administration.domain.Menu;
 import com.artivisi.school.administration.domain.Permission;
@@ -94,4 +95,12 @@ public interface BelajarRestfulService extends MonitoredService {
     Teacher findTeacherById(String id);
     Page<Teacher> findAllTeacher(Pageable pageable);
     Long countAllTeacher();
+    
+    
+    // lesson
+    void save(Lesson l);
+    void delete(Lesson l);
+    Lesson findLessonById(String id);
+    Page<Lesson> findAllLesson(Pageable pageable);
+    Long countAllLesson();
 }

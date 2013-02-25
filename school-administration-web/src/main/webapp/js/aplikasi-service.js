@@ -300,4 +300,24 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
+.factory('LessonService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            lesson: $resource('master/lesson/:id', {}, {
+                queryPage: {method:'GET', isArray: false}
+            }),
+            get: function(param, callback){ return this.lesson.get(param, callback) }, 
+            query: function(p, callback){ return this.lesson.queryPage({"page.page": p, "page.size": 10}, callback) },
+            save: function(obj){
+                    return $http.post('master/lesson', obj);
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/lesson/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])
+
 ;

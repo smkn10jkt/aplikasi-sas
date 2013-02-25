@@ -184,6 +184,31 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
+        
+        <createTable tableName="m_lesson">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="major" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="semester" type="varchar(255)">
+               <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="kkm" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="ctotal" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
         <modifySql dbms="mysql">
             <append value=" engine innodb" />
         </modifySql>
@@ -239,6 +264,20 @@
             columnNames="username"
             tableName="c_security_user"
         />
+        <addUniqueConstraint
+            constraintName="unique_major_name"
+            columnNames="name"
+            tableName="m_major"
+        />
+        
+         <addForeignKeyConstraint
+            constraintName="fk_lesson_major"
+            baseColumnNames="major"
+            baseTableName="m_lesson"
+            referencedTableName="m_major"
+            referencedColumnNames="id"
+        />
+        
         <addForeignKeyConstraint
             constraintName="fk_user_role"
             baseColumnNames="id_role"
@@ -336,6 +375,15 @@
             <column header="id" type="STRING"/>
             <column header="name" type="STRING"/>
             <column header="nip" type="STRING"/>
+            <column header="description" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_lesson" file="com/artivisi/school/administration/db/data/lesson.csv">
+            <column header="id" type="STRING"/>
+            <column header="major" type="STRING"/>
+            <column header="semester" type="STRING"/>
+            <column header="name" type="STRING"/>
+            <column header="kkm" type="STRING"/>
+            <column header="ctotal" type="STRING"/>
             <column header="description" type="STRING"/>
         </loadData>
     </changeSet>

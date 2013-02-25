@@ -2,6 +2,7 @@ package com.artivisi.school.administration.service.impl;
 
 
 import com.artivisi.school.administration.domain.Kelas;
+import com.artivisi.school.administration.domain.Lesson;
 import com.artivisi.school.administration.domain.Major;
 import com.artivisi.school.administration.domain.School;
 import com.artivisi.school.administration.domain.Student;
@@ -16,6 +17,7 @@ import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
 import com.artivisi.school.administration.dao.KelasDao;
+import com.artivisi.school.administration.dao.LessonDao;
 import com.artivisi.school.administration.dao.MajorDao;
 import com.artivisi.school.administration.dao.MenuDao;
 import com.artivisi.school.administration.dao.PermissionDao;
@@ -59,6 +61,8 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     private MajorDao majorDao; 
     @Autowired
     private TeacherDao teacherDao; 
+    @Autowired
+    private LessonDao lessonDao; 
 
     @Override
     public void save(ApplicationConfig ac) {
@@ -435,6 +439,34 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Override
     public Long countAllTeacher() {
         return teacherDao.count();
+    }
+
+    @Override
+    public void save(Lesson l) {
+        lessonDao.save(l);
+    }
+
+    @Override
+    public void delete(Lesson l) {
+        lessonDao.delete(l);
+    }
+
+    @Override
+    public Lesson findLessonById(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return lessonDao.findOne(id);
+    }
+
+    @Override
+    public Page<Lesson> findAllLesson(Pageable pageable) {
+        return lessonDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllLesson() {
+        return lessonDao.count();
     }
 
     

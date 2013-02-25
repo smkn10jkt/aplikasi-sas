@@ -632,4 +632,40 @@ angular.module('belajar.controller',['belajar.service'])
             });
         }
     }])
+
+.controller('LessonController', ['$scope', 'LessonService', 'MajorService', function($scope, LessonService, MajorService){
+        $scope.lessons = LessonService.query();
+        $scope.majors = MajorService.query();
+        $scope.edit = function(x){
+            if(x.id == null){
+                return; 
+            }
+            
+             $scope.currentLesson = LessonService.get({id: x.id}, function(data){
+                $scope.original = angular.copy(data);
+            });
+        };
+        $scope.baru = function(){
+            $scope.currentLesson = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            LessonService.save($scope.currentLesson)
+            .success(function(){
+                $scope.lessons = LessonService.query();
+                $scope.baru();
+            });
+        }
+        $scope.remove = function(x){
+            if(x.id == null){
+                return;
+            }
+            LessonService.remove(x).success(function(){
+                $scope.lessons = LessonService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentLesson);
+        }
+    }])
 ;
