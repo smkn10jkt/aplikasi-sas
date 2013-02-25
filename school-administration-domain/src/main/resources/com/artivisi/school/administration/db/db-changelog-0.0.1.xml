@@ -46,6 +46,15 @@
             </column>
         </createTable>
         
+        <createTable tableName="m_major">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        
         <createTable tableName="c_security_role">
             <column name="id" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false" />
@@ -309,6 +318,10 @@
             <column header="address" type="STRING"/>
             <column header="zipcode" type="STRING"/>
             <column header="phone" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_major" file="com/artivisi/school/administration/db/data/major.csv">
+            <column header="id" type="STRING"/>
+            <column header="name" type="STRING"/>
         </loadData>
     </changeSet>
 </databaseChangeLog>

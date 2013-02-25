@@ -2,8 +2,12 @@ angular.module('belajar.service', ['ngResource'])
     .factory('ApplicationConfigService', ['$resource', '$http', function($resource, $http){
         var service = {
             applicationConfig: $resource('config/:configId'),
-            get: function(param, callback){ return this.applicationConfig.get(param, callback) }, 
-            query: function(){ return this.applicationConfig.query() },
+            get: function(param, callback){
+                return this.applicationConfig.get(param, callback)
+            }, 
+            query: function(){
+                return this.applicationConfig.query()
+            },
             save: function(obj){
                 if(obj.id == null){
                     return $http.post('config', obj);
@@ -35,10 +39,20 @@ angular.module('belajar.service', ['ngResource'])
     .factory('SystemMenuService', ['$resource', '$http', function($resource, $http){
         var service = {
             menu: $resource('menu/:id', {}, {
-                queryPage: {method:'GET', isArray: false}
+                queryPage: {
+                    method:'GET', 
+                    isArray: false
+                }
             }),
-            get: function(param, callback){ return this.menu.get(param, callback) }, 
-            query: function(p, callback){ return this.menu.queryPage({"page.page": p, "page.size": 10}, callback) },
+            get: function(param, callback){
+                return this.menu.get(param, callback)
+            }, 
+            query: function(p, callback){
+                return this.menu.queryPage({
+                    "page.page": p, 
+                    "page.size": 10
+                }, callback)
+            },
             save: function(obj){
                 if(obj.id == null){
                     return $http.post('menu', obj);
@@ -58,8 +72,12 @@ angular.module('belajar.service', ['ngResource'])
     .factory('PermissionService', ['$resource', '$http', function($resource, $http){
         var service = {
             permission: $resource('permission/:id'),
-            get: function(param, callback){ return this.permission.get(param, callback) }, 
-            query: function(){ return this.permission.query() },
+            get: function(param, callback){
+                return this.permission.get(param, callback)
+            }, 
+            query: function(){
+                return this.permission.query()
+            },
             save: function(obj){
                 if(obj.id == null){
                     return $http.post('permission', obj);
@@ -79,8 +97,12 @@ angular.module('belajar.service', ['ngResource'])
     .factory('RoleService', ['$resource', '$http', function($resource, $http){
         var service = {
             role: $resource('role/:id'),
-            get: function(param, callback){ return this.role.get(param, callback) }, 
-            query: function(){ return this.role.query() },
+            get: function(param, callback){
+                return this.role.get(param, callback)
+            }, 
+            query: function(){
+                return this.role.query()
+            },
             save: function(obj){
                 if(obj.id == null){
                     return $http.post('role', obj);
@@ -106,8 +128,12 @@ angular.module('belajar.service', ['ngResource'])
     .factory('UserService', ['$resource', '$http', function($resource, $http){
         var service = {
             user: $resource('user/:id'),
-            get: function(param, callback){ return this.user.get(param, callback) }, 
-            query: function(){ return this.user.query() },
+            get: function(param, callback){
+                return this.user.get(param, callback)
+            }, 
+            query: function(){
+                return this.user.query()
+            },
             save: function(obj){
                 if(obj.id == null){
                     return $http.post('user', obj);
@@ -128,13 +154,23 @@ angular.module('belajar.service', ['ngResource'])
     .factory('TeacherService', ['$resource', '$http', function($resource, $http){
         var service = {
             teacher: $resource('master/teacher/:id', {}, {
-                queryPage: {method:'GET', isArray: false}
+                queryPage: {
+                    method:'GET', 
+                    isArray: false
+                }
             }),
-            get: function(param, callback){ return this.teacher.get(param, callback) }, 
-            query: function(p, callback){ return this.teacher.queryPage({"page.page": p, "page.size": 10}, callback) },
+            get: function(param, callback){
+                return this.teacher.get(param, callback)
+            }, 
+            query: function(p, callback){
+                return this.teacher.queryPage({
+                    "page.page": p, 
+                    "page.size": 10
+                }, callback)
+            },
             save: function(obj){
                     
-                    return $http.post('master/teacher', obj);
+                return $http.post('master/teacher', obj);
                 
                    
             }, 
@@ -150,13 +186,23 @@ angular.module('belajar.service', ['ngResource'])
     
     .factory('SchoolService', ['$resource', '$http', function($resource, $http){
         var service = {
-            teacher: $resource('master/school/:id', {}, {
-                queryPage: {method:'GET', isArray: false}
+            school: $resource('master/school/:id', {}, {
+                queryPage: {
+                    method:'GET', 
+                    isArray: false
+                }
             }),
-            get: function(param, callback){ return this.teacher.get(param, callback) }, 
-            query: function(p, callback){ return this.teacher.queryPage({"page.page": p, "page.size": 10}, callback) },
+            get: function(param, callback){
+                return this.school.get(param, callback)
+            }, 
+            query: function(p, callback){
+                return this.school.queryPage({
+                    "page.page": p, 
+                    "page.size": 10
+                }, callback)
+            },
             save: function(obj){
-                    return $http.post('master/school', obj);
+                return $http.post('master/school', obj);
             }, 
             remove: function(obj){
                 if(obj.id != null){
@@ -167,6 +213,7 @@ angular.module('belajar.service', ['ngResource'])
             
         return service;
     }])
+<<<<<<< HEAD
 .factory('KelasService', ['$resource', '$http', function($resource, $http){
         var service = {
             kelas: $resource('master/class/:id', {}, {
@@ -180,10 +227,69 @@ angular.module('belajar.service', ['ngResource'])
             remove: function(obj){
                 if(obj.id != null){
                     return $http.delete('master/class/'+obj.id);
+=======
+    
+    .factory('StudentService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            student: $resource('master/student/:id', {}, {
+                queryPage: {
+                    method:'GET', 
+                    isArray: false
+                }
+            }),
+            get: function(param, callback){
+                return this.student.get(param, callback)
+            }, 
+            query: function(p, callback){
+                return this.student.queryPage({
+                    "page.page": p, 
+                    "page.size": 10
+                }, callback)
+            },
+            save: function(obj){
+                return $http.post('master/student', obj);
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/student/'+obj.id);
+                }
+            }
+        };
+            
+        return service;
+    }])      
+    .factory('MajorService', ['$resource', '$http', function($resource, $http){
+        var service = {
+            major: $resource('master/major/:id', {}, {
+                queryPage: {
+                    method:'GET', 
+                    isArray: false
+                }
+            }),
+            get: function(param, callback){
+                return this.major.get(param, callback)
+            }, 
+            query: function(p, callback){
+                return this.major.queryPage({
+                    "page.page": p, 
+                    "page.size": 10
+                }, callback)
+            },
+            save: function(obj){
+                return $http.post('master/major', obj);
+            }, 
+            remove: function(obj){
+                if(obj.id != null){
+                    return $http.delete('master/major/'+obj.id);
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
                 }
             }
         };
             
         return service;
     }])
+<<<<<<< HEAD
 ;
+=======
+;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc

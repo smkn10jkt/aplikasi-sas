@@ -498,6 +498,7 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return;
             }
+<<<<<<< HEAD
             SchoolService.remove(x).success(function(){
                 $scope.schools = SchoolService.query();
             });
@@ -505,15 +506,32 @@ angular.module('belajar.controller',['belajar.service'])
     }])
 .controller('KelasController', ['$scope', 'KelasService', function($scope, SchoolService){
         $scope.kelases = KelasService.query();
+=======
+            TeacherSchool.remove(x).success(function(){
+                $scope.schools = SchoolService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentSchool);
+        }
+    }])
+.controller('MajorController', ['$scope', 'MajorService', function($scope, MajorService){
+        $scope.majors = MajorService.query();
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
         $scope.edit = function(x){
             if(x.id == null){
                 return; 
             }
+<<<<<<< HEAD
             $scope.currentKelas = KelasService.get({id: x.id}, function(data){
+=======
+            $scope.currentMajor = MajorService.get({id: x.id}, function(data){
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
                 $scope.original = angular.copy(data);
             });
         };
         $scope.baru = function(){
+<<<<<<< HEAD
             $scope.currentKelas = null;
             $scope.original = null;
         }
@@ -521,6 +539,15 @@ angular.module('belajar.controller',['belajar.service'])
             KelasService.save($scope.currentSchool)
             .success(function(){
                 $scope.kelases = KelasService.query();
+=======
+            $scope.currentMajor = null;
+            $scope.original = null;
+        }
+        $scope.simpan = function(){
+            MajorService.save($scope.currentMajor)
+            .success(function(){
+                $scope.majors = MajorService.query();
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
                 $scope.baru();
             });
         }
@@ -528,9 +555,19 @@ angular.module('belajar.controller',['belajar.service'])
             if(x.id == null){
                 return;
             }
+<<<<<<< HEAD
             KelasService.remove(x).success(function(){
                 $scope.kelases = KelasService.query();
             });
         }
+=======
+            MajorService.remove(x).success(function(){
+                $scope.majors = MajorService.query();
+            });
+        }
+        $scope.isClean = function(){
+            return angular.equals($scope.original, $scope.currentMajor);
+        }
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
     }])
 ;

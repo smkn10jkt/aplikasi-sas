@@ -38,7 +38,7 @@
                 <input type="text" id="class"
                        name="id" 
                        placeholder="Majors ID" 
-                       ng-model="id.value"
+                       ng-model="currentMajor.id"
                        required>
                 <span ng-show="formEdit.id.$error.required" class="help-inline">required</span>
                 </div>
@@ -48,9 +48,8 @@
                        id="name" 
                        name="name" 
                        placeholder="Name" 
-                       ng-model="currentName.value"
-                       required
-                       ui-validate="{nameValueAvailable: isNameValueAvailable}">
+                       ng-model="currentMajor.name"
+                       required>
                 <span ng-show="formEdit.name.$error.required" class="help-inline">required</span>   
             </div>
             <div class="form-actions">

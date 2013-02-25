@@ -2,12 +2,17 @@ package com.artivisi.school.administration.service;
 
 
 import com.artivisi.school.administration.domain.ApplicationConfig;
+<<<<<<< HEAD
 import com.artivisi.school.administration.domain.Kelas;
+=======
+import com.artivisi.school.administration.domain.Major;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
 import com.artivisi.school.administration.domain.Menu;
 import com.artivisi.school.administration.domain.Permission;
 import com.artivisi.school.administration.domain.Role;
 
 import com.artivisi.school.administration.domain.School;
+import com.artivisi.school.administration.domain.Student;
 import com.artivisi.school.administration.domain.User;
 
 import java.util.List;
@@ -64,10 +69,27 @@ public interface BelajarRestfulService extends MonitoredService {
     Page<School> findAllSchool(Pageable pageable);
     Long countAllSchool();
     
+<<<<<<< HEAD
     // kelas
     void save(Kelas kelas);
     void delete(Kelas kelas);
     Kelas findKelasById(String id);
     Page<Kelas> findAllKelas(Pageable pageable);
     Long countAllKelas();
+=======
+
+    // student
+    void save(Student student);
+    void delete(Student student);
+    Student findStudentById(String id);
+    Page<Student> findAllStudent(Pageable pageable);
+    Long countAllStudent();
+    
+    // major
+    void save(Major mj);
+    void delete(Major mj);
+    Major findMajorById(String id);
+    Page<Major> findAllMajor(Pageable pageable);
+    Long countAllMajor();
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
 }

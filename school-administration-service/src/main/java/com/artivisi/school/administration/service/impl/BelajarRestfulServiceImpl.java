@@ -3,8 +3,13 @@ package com.artivisi.school.administration.service.impl;
 
 
 
+<<<<<<< HEAD
 import com.artivisi.school.administration.domain.Kelas;
+=======
+import com.artivisi.school.administration.domain.Major;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
 import com.artivisi.school.administration.domain.School;
+import com.artivisi.school.administration.domain.Student;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +19,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.artivisi.school.administration.dao.ApplicationConfigDao;
+<<<<<<< HEAD
 import com.artivisi.school.administration.dao.KelasDao;
+=======
+import com.artivisi.school.administration.dao.MajorDao;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
 import com.artivisi.school.administration.dao.MenuDao;
 import com.artivisi.school.administration.dao.PermissionDao;
 import com.artivisi.school.administration.dao.RoleDao;
 import com.artivisi.school.administration.dao.SchoolDao;
+import com.artivisi.school.administration.dao.StudentDao;
 import com.artivisi.school.administration.dao.UserDao;
 import com.artivisi.school.administration.domain.ApplicationConfig;
 import com.artivisi.school.administration.domain.Menu;
@@ -48,7 +58,13 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Autowired
     private SchoolDao schoolDao;
     @Autowired
+<<<<<<< HEAD
     private KelasDao kelasDao;
+=======
+    private StudentDao studentDao;
+    @Autowired
+    private MajorDao majorDao;
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
 
     
 
@@ -317,6 +333,7 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     }
 
     @Override
+<<<<<<< HEAD
     public void save(Kelas kelas) {
         kelasDao.save(kelas);
     }
@@ -343,6 +360,61 @@ public class BelajarRestfulServiceImpl implements BelajarRestfulService {
     @Override
     public Long countAllKelas() {
        return kelasDao.count();
+=======
+    public void save(Student student) {
+        studentDao.save(student);
+    }
+
+    @Override
+    public void delete(Student student) {
+        studentDao.delete(student);
+    }
+
+    @Override
+    public Student findStudentById(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return studentDao.findOne(id);
+    }
+
+    @Override
+    public Page<Student> findAllStudent(Pageable pageable) {
+        return studentDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllStudent() {
+        return studentDao.count();
+    }
+    
+    @Override
+    public void save(Major mj) {
+        majorDao.save(mj);
+    }
+
+    @Override
+    public void delete(Major mj) {
+        majorDao.delete(mj);
+    }
+
+    @Override
+    public Major findMajorById(String id) {
+        if(!StringUtils.hasText(id)){
+            return null;
+        }
+        return majorDao.findOne(id);
+    }
+
+    @Override
+    public Page<Major> findAllMajor(Pageable pageable) {
+        return majorDao.findAll(pageable);
+    }
+
+    @Override
+    public Long countAllMajor() {
+        return majorDao.count();
+>>>>>>> d6c0fb06a769a7a8119f52a833c24b57594f01dc
     }
 
 }
