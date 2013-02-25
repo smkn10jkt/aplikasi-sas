@@ -598,13 +598,11 @@ angular.module('belajar.controller',['belajar.service'])
         }
     }])
 
-    .controller('KelasController', ['$scope', 'KelasService', 'MajorService', function($scope, KelasService, MajorService){
+    .controller('KelasController', ['$scope', 'KelasService', function($scope, KelasService){
         $scope.kelases = KelasService.query();
-        console.log("isi kelases --> ", $scope.kelases);
-        $scope.majors = MajorService.query();
         $scope.edit = function(x){
             if(x.id == null){
-                return;
+                return; 
             }
             $scope.currentKelas = KelasService.get({
                 id: x.id

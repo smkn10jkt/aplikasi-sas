@@ -253,6 +253,13 @@
             referencedTableName="m_major"
             referencedColumnNames="id"
         />
+        <addForeignKeyConstraint
+            constraintName="fk_kelas"
+            baseColumnNames="majors"
+            baseTableName="m_kelas"
+            referencedTableName="m_major"
+            referencedColumnNames="id"
+        />
     </changeSet>
     <changeSet id="3" author="endy">
         <loadData tableName="c_security_menu" file="com/artivisi/school/administration/db/data/menu.csv">
@@ -299,6 +306,11 @@
             <column header="website" type="STRING"/>
             <column header="email" type="STRING"/>
         </loadData>
+        <loadData tableName="m_major" file="com/artivisi/school/administration/db/data/major.csv">
+            <column header="id" type="STRING"/>
+            <column header="name" type="STRING"/>
+            <column header="description" type="STRING"/>
+        </loadData>
         <loadData tableName="m_kelas" file="com/artivisi/school/administration/db/data/kelas.csv">
             <column header="id" type="STRING"/>
             <column header="majors" type="STRING"/>
@@ -319,11 +331,7 @@
             <column header="zipcode" type="STRING"/>
             <column header="phone" type="STRING"/>
         </loadData>
-        <loadData tableName="m_major" file="com/artivisi/school/administration/db/data/major.csv">
-            <column header="id" type="STRING"/>
-            <column header="name" type="STRING"/>
-            <column header="description" type="STRING"/>
-        </loadData>
+        
         <loadData tableName="m_teacher" file="com/artivisi/school/administration/db/data/teacher.csv">
             <column header="id" type="STRING"/>
             <column header="name" type="STRING"/>

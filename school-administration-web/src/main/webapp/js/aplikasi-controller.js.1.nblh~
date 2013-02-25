@@ -600,7 +600,6 @@ angular.module('belajar.controller',['belajar.service'])
 
     .controller('KelasController', ['$scope', 'KelasService', 'MajorService', function($scope, KelasService, MajorService){
         $scope.kelases = KelasService.query();
-        console.log("isi kelases --> ", $scope.kelases);
         $scope.majors = MajorService.query();
         $scope.edit = function(x){
             if(x.id == null){
