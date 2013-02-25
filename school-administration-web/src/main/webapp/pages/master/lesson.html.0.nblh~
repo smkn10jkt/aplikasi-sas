@@ -46,7 +46,7 @@
                         <label class="control-label" for="major">Major : &nbsp;</label>
                         <select ui-select2 id="major" name="major" ng-model="currentLesson.major.id" data-placeholder="-- Select One --">
                             <option></option>
-                            <option ng-repeat = "major in major.content" value="{{major.id}}" >{{major.description}}</option>
+                            <option ng-repeat = "major in majors.content" value="{{major.id}}" >{{major.description}}</option>
                         </select>
                     </div>
              <div class="control-group">

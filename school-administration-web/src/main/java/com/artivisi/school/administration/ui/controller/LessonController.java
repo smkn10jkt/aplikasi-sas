@@ -44,22 +44,22 @@ public class LessonController {
     @RequestMapping(value="/master/lesson/{id}", method=RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable String id, @RequestBody @Valid Lesson l){
-        Lesson lDb = belajarRestfulService.findLessonById(id);
-        if(lDb == null){
+        Lesson lessonDB = belajarRestfulService.findLessonById(id);
+        if(lessonDB == null){
             throw  new IllegalStateException();
         }
-        l.setId(lDb.getId());
+        l.setId(lessonDB.getId());
         belajarRestfulService.save(l);
     }
     
     @RequestMapping(value="/master/lesson/{id}", method= RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String id){
-        Lesson lDb = belajarRestfulService.findLessonById(id);
-        if(lDb == null){
+        Lesson lessonDB = belajarRestfulService.findLessonById(id);
+        if(lessonDB == null){
             throw new IllegalStateException();
         }
-        belajarRestfulService.delete(lDb);
+        belajarRestfulService.delete(lessonDB);
     }
     
     @RequestMapping(value="/master/lesson/{id}", method=RequestMethod.GET)

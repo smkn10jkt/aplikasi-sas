@@ -635,7 +635,7 @@ angular.module('belajar.controller',['belajar.service'])
 
 .controller('LessonController', ['$scope', 'LessonService', 'MajorService', function($scope, LessonService, MajorService){
         $scope.lessons = LessonService.query();
-//        console.log("isi lessons --> ", $scope.lessons);
+        console.log("isi lessons --> ", $scope.lessons);
         $scope.major = MajorService.query();
         $scope.edit = function(x){
             if(x.id == null){
