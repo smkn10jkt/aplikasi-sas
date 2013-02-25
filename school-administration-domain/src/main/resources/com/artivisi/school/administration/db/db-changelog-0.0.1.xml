@@ -124,6 +124,23 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
+        <createTable tableName="m_kelas">
+            <column name="id" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="majors" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="grade" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="homeroom" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
         <createTable tableName="m_student">
             <column name="id" type="varchar(255)">
                 <constraints primaryKey="true" nullable="false" />
@@ -272,6 +289,13 @@
             <column header="phone" type="STRING"/>
             <column header="website" type="STRING"/>
             <column header="email" type="STRING"/>
+        </loadData>
+        <loadData tableName="m_kelas" file="com/artivisi/school/administration/db/data/kelas.csv">
+            <column header="id" type="STRING"/>
+            <column header="majors" type="STRING"/>
+            <column header="grade" type="STRING"/>
+            <column header="name" type="STRING"/>
+            <column header="homeroom" type="STRING"/>
         </loadData>
         <loadData tableName="m_student" file="com/artivisi/school/administration/db/data/student.csv">
             <column header="id" type="STRING"/>

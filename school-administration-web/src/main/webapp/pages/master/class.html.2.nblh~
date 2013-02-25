@@ -34,34 +34,34 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>``
+                </div>
                 <div class="tab-pane" id="new_kelas">
                     <h3>Input Class</h3>
                     <form class="form-horizontal" name="formEdit">
                         <div class="control-group" ng-class="{error: formEdit.id.$invalid}">
                             <label class="control-label" for="id">Class ID : &nbsp;</label>
-                            <input type="text" id="id"
+                            <input type="text" id="class"
                                    name="id" 
                                    placeholder="Class ID" 
-                                   ng-model="currentKelas.id"
+                                   ng-model="currentKelas.value"
                                    required>
                             <span ng-show="formEdit.id.$error.required" class="help-inline">required</span>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="majors">Majors : &nbsp;</label>
-                            <select id="majors" name="majors" ng-model="currentKelas.majors">
-                                <option value="Akutansi">Akutansi</option>
-                                <option value="Adm. Perkantoran">Adm. Perkantoran</option>
-                                <option value="Pemasaran">Pemasaran</option>
-                                <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                            <select id="majors" name="majors">
+                                <option>Akutansi</option>
+                                <option>Adm. Perkantoran</option>
+                                <option>Pemasaran</option>
+                                <option>Rekayasa Perangkat Lunak</option>
                             </select>
                         </div>
                         <div class="control-group" ng-class="{error: formEdit.grade.$invalid}">
                             <label class="control-label" for="grade">Grade : &nbsp;</label>
-                            <select id="grade" name="grade" ng-model="currentKelas.grade">
-                                <option value="X">X</option>
-                                <option value="XI">XI</option>
-                                <option value="XII">XII</option>
+                            <select>
+                                <option>X</option>
+                                <option>XI</option>
+                                <option>XII</option>
                             </select>
                         </div>
                         <div class="control-group" ng-class="{error: formEdit.name.$invalid}">
@@ -80,7 +80,7 @@
                                    id="homeroom" 
                                    name="homeroom" 
                                    placeholder="Homeroom" 
-                                   ng-model="currentKelas.homeroom"
+                                   ng-model="currentKelas.value"
                                    required>
                             <span ng-show="formEdit.homeroom.$error.required" class="help-inline">required</span>   
                         </div>

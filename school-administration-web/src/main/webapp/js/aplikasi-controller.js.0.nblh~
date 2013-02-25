@@ -503,7 +503,7 @@ angular.module('belajar.controller',['belajar.service'])
             });
         }
     }])
-.controller('KelasController', ['$scope', 'KelasService', function($scope, KelasService){
+.controller('KelasController', ['$scope', 'KelasService', function($scope, SchoolService){
         $scope.kelases = KelasService.query();
         $scope.edit = function(x){
             if(x.id == null){
@@ -518,7 +518,7 @@ angular.module('belajar.controller',['belajar.service'])
             $scope.original = null;
         }
         $scope.simpan = function(){
-            KelasService.save($scope.currentKelas)
+            KelasService.save($scope.currentSchool)
             .success(function(){
                 $scope.kelases = KelasService.query();
                 $scope.baru();
