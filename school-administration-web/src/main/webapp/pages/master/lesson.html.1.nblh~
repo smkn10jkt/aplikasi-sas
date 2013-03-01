@@ -1,17 +1,47 @@
 <div class="container">
-    <div class="span11 well-large">
-        <legend><h1>Master Lesson</h1></legend>
+<div class="span11 well-large">
+    <h1 id="header">Master Lesson</h1>
         <div>
-            <a href="#myModal" role="button" ng-click="baru()" class="btn btn-info" data-toggle="modal"><i class="icon-plus-sign"></i>Create New Lesson</a>
-        </div>
-        <!-- Modal -->
-        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h3 id="myModalLabel">Input New Lesson</h3>
-            </div>
-            <div class="modal-body">
-              <form class="form-horizontal" name="formEdit">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#list" data-toggle="tab"><i class="icon-list"></i>Lesson List</a></li>
+                <li><a href="#new" data-toggle="tab"><i class="icon-plus-sign"></i>Create New Lesson</a></li>
+            </ul>
+        <div class="tab-content">
+    <div class="tab-pane active" id="list">
+      <h3>Lesson List</h3>
+        <table class="table table-striped table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <th>Major</th>
+                    <th>Semester</th>
+                    <th>Name</th>
+                    <th>KKM</th>
+                    <th>Total Competency</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr ng-repeat="x in lessons.content">
+                <td>{{x.major.description}}</td>
+                <td>{{x.semester}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.kkm}}</td>
+                <td>{{x.ctotal}}</td>
+                <td>{{x.description}}</td>
+                <td>
+                    <a ng-click="edit(x)"><i class="icon-edit"></i></a>
+                    <a ng-click="remove(x)"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+  <div class="tab-pane" id="new">
+      <h3>Input Lesson</h3>
+	 <form class="form-horizontal" name="formEdit">
+             <div class="modal-body">
+                <form class="form-horizontal" name="formEdit">
                     <div class="control-group">
                         <label class="control-label" for="major">Major : &nbsp;</label>
                         <select ui-select2 id="major" name="major" ng-model="currentLesson.major.id" data-placeholder="-- Select One --">
@@ -76,38 +106,14 @@
                 <button type="button" class="btn" ng-click="baru()">Cancel</button>
             </div>
     </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">Close</button>
-            </div>
-        </div>
-        <hr>
-        <table class="table table-striped table-condensed table-bordered">
-            <thead>
-                <tr>
-                    <th>Major</th>
-                    <th>Semester</th>
-                    <th>Name</th>
-                    <th>KKM</th>
-                    <th>Total Competency</th>
-                    <th>Description</th>
-                    <th></th>
-                </tr>
-            </thead>
-        <tbody>
-            <tr ng-repeat="x in lessons.content">
-                <td>{{x.major.description}}</td>
-                <td>{{x.semester}}</td>
-                <td>{{x.name}}</td>
-                <td>{{x.kkm}}</td>
-                <td>{{x.ctotal}}</td>
-                <td>{{x.description}}</td>
-                <td>
-                    <a ng-click="edit(x)" href="#myModal" data-toggle="modal"><i class="icon-edit"></i></a>
-                    <a ng-click="remove(x)"><i class="icon-remove"></i></a>
-                </td>
-            </tr>
-        </tbody>
-        </table>
     </div>
+
+</div>
+ 
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+	  })
+ </script>
+		</div>
 </div>
